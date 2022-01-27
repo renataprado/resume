@@ -55,8 +55,6 @@ function App() {
               }} 
             >
               <Timeline></Timeline>
-              <Item> Something </Item>
-              <Item> Something </Item>
               <Why></Why> 
             </Box>
           </Grid>
