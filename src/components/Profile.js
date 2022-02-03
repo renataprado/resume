@@ -8,7 +8,9 @@ function Profile() {
         sx={{
           bgcolor: 'background.paper',
           p: 2,
-          display: 'flex', flexDirection:'column',  alignItems: 'center', 
+          display: 'flex', 
+          flexDirection:'column',  
+          alignItems: 'center', 
         }}
       >
         <div style={{ maxWidth: '160px' }}>

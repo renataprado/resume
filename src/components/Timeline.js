@@ -1,85 +1,96 @@
 import React from 'react';
-import { Box, Avatar, Paper } from '@mui/material';
-import { style } from '@mui/system';
-
-const circles = (num) => {     
-  let c=[];
-  for (var i = 0; i < num; i++){
-    c.push( <div style={styles.circle} key={i}/>)};
-  return (c);
-} 
-
-const papers = (num) => {     
-  let c=[];
-  for (var i = 0; i < num; i++){
-    c.push( <Paper style={styles.paper} elevation={2}>something</Paper>)};
-  return (c);
-} 
+import { Box, Link, Typography } from '@mui/material';
 
 function Timeline(){
-
-
   return(
     <Box
       sx={{
-        bgcolor: 'background.paper',
-        minWidth: 300,
-        p: 2
+        height: '90vh', 
+        width: '100%',
+        p: 2  
       }}
     >
-      <h2>timeline</h2>
-      <div style={{display: 'flex'}}>
-        <div style={styles.papers}>
-          {papers(3)}
-        </div>
-        <div style={styles.container}>
-          <div style={styles.centerx}/>
-          <div style={styles.circles}>
-            {circles(7)}
-          </div>
-        </div>
-      </div>
+      <Typography variant="h5" gutterBottom sx={{color: 'text.primary', p: 3}}>
+        Educação
+      </Typography>
+      <Box sx={{display: 'flex', height: '90%'}}>
+        <Box  sx={{position: 'relative', left: 12}}>
+          {papers('Técnico em Comunicação Visual', 'Etec Rocha Mendes', '2009 - 2010')}
+          {papers('Bacharelado em Ciência e Tecnologia', 'Universidade Federal do ABC', '2015 - 2016')}
+        </Box>
+        <div style={{ width: 4, height: '95%', backgroundColor: 'black'}}/>
+      </Box>
     </Box>
   )
-
 }
 
+const papers = (title, subtitle, p) => {    
+  const paper = (
+    <div style={{display: 'flex'}}>
+      <Box sx={styles.paper}>
+        <Box sx={styles.period}>
+          <Typography variant="caption" sx={{color: 'text.secondary', mt:2}}> {p}</Typography>
+        </Box>
+        <Typography variant="body1" gutterBottom sx={{color: 'text.primary'}}>{title}</Typography>
+        <Typography variant="body2"  sx={{color: 'text.secondary', marginBottom: 2}}>{subtitle}</Typography>
+        <Link
+          component="button"
+          variant="caption"
+          underline="hover"
+          onClick={() => {
+            console.info("I'm a button.");
+          }}
+        >
+          Disciplinas curriculares
+        </Link>
+      </Box>
+      <Box sx={styles.circles}>
+        <Box sx={styles.arrow}>&#11208;</Box>
+        <Box sx={styles.circle}/>
+      </Box>
+    </div>
+  )
+  return (paper);
+} 
 
 const styles = {
   paper: {
-    maxWidth: 200,
-    height: 100,
-    padding: 5,
-    margin: 6
+    backgroundColor: 'background.paper',
+    width: 380,
+    padding: 2.5,
+    marginBottom: 4
   },
-  papers: {
-    width: 210,
-    height: 600,
-    display: 'flex',
-    flexDirection:  'column',
+  period:{
+    float: 'right',
+    borderRadius: 20,
+    width: 84,
+    textAlign: 'center',
+    bgcolor: 'background.default'
   },
-  container: {
+  circles:{
+    width: 62,
     display: 'flex',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent:  'center'
+    height: 60,
+    marginLeft: -1
   },
-  centerx: {
-    width: 5,
-    height: 800,
-    backgroundColor: 'black'
-  },
-  circles: {
-    height: 800,
-    margin: -9,
-    display: 'flex',
-    flexDirection:  'column',
-    justifyContent: 'space-between'
+  arrow: {
+    fontSize: 28,
+    color: 'background.paper',
   },
   circle: {
-    width: 12,
-    height: 12,
+    bgcolor: 'black',
+    width: 16,
+    height: 16,
     borderRadius: 20,
-    backgroundColor: 'white'
+    border: 3,
+    borderColor: 'primary.main',
+  },
+  centerx: {
+    width: 4,
+    height: '95%',
+    backgroundColor: 'black'
   }
 }
 export default Timeline;

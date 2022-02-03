@@ -1,42 +1,18 @@
 import './App.css';
-//import Profile from './components/Profile';
-import Why from './components/Material';
-import { ThemeProvider, Box, Container, Grid, Paper } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-import { green, purple } from '@mui/material/colors';
-import { styled } from '@mui/material/styles';
-import Checkbox from '@mui/material/Checkbox';
+import { ThemeProvider, Box, Grid} from '@mui/material';
 import Profile from './components/Profile';
 import Timeline from './components/Timeline';
-
+import {darkTheme, lightTheme} from './themes';
 
 
 function App() {
-  const theme = createTheme({
-    palette: {
-      mode: 'dark',
-      primary: {
-        main: purple[500],
-      },
-      secondary: {
-        main: green[500],
-      }
-    },
-  });
-
-  const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
 
   return (
-    <div className="App">
-      <ThemeProvider  theme={theme}>
-      <Box sx={{ flexGrow: 1, p: 3 }}>
+    <ThemeProvider  theme={darkTheme}>
+    <Box sx={{backgroundColor: 'background.default'}}>
+      <Box sx={{ flexGrow: 1, p: 4 }}>
         <Grid container spacing={2}>
-          <Grid item xs={3}>
+          <Grid item xs={2}>
             <Box
               sx={{
                 bgcolor: 'background.paper',
@@ -47,23 +23,19 @@ function App() {
               <Profile></Profile>
             </Box>
           </Grid>
-          <Grid item xs={9}>
+          <Grid item xs={10}>
             <Box
               sx={{
-                bgcolor: 'background.paper',
                 height: '94vh'
               }} 
             >
               <Timeline></Timeline>
-              <Why></Why> 
             </Box>
           </Grid>
         </Grid>
       </Box>
-     
-      </ThemeProvider>
-  );
-    </div>
+    </Box>
+    </ThemeProvider>
   );
 }
 
