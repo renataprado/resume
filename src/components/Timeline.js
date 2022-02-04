@@ -13,26 +13,30 @@ function Timeline(){
       <Typography variant="h5" gutterBottom sx={{color: 'text.primary', p: 3}}>
         Educação
       </Typography>
-      <Box sx={{display: 'flex', height: '90%'}}>
-        <Box  sx={{position: 'relative', left: 12}}>
-          {papers('Técnico em Comunicação Visual', 'Etec Rocha Mendes', '2009 - 2010')}
-          {papers('Bacharelado em Ciência e Tecnologia', 'Universidade Federal do ABC', '2015 - 2016')}
+      <Box sx={{display: 'flex', height: '90%', justifyContent: 'flex-start'}}>
+        <Box  sx={{position: 'relative', left: 13}}>
+          {educationItems.map((item) =>
+            <EducationItem key={item.id} value={item}/>
+          )}
         </Box>
-        <div style={{ width: 4, height: '95%', backgroundColor: 'black'}}/>
+        <Box sx={{width: 5, height: '95%', bgcolor: 'background.contrast'}}/>
       </Box>
     </Box>
   )
 }
 
-const papers = (title, subtitle, p) => {    
-  const paper = (
+const EducationItem = (props) => {    
+  return (
     <div style={{display: 'flex'}}>
       <Box sx={styles.paper}>
-        <Box sx={styles.period}>
-          <Typography variant="caption" sx={{color: 'text.secondary', mt:2}}> {p}</Typography>
-        </Box>
-        <Typography variant="body1" gutterBottom sx={{color: 'text.primary'}}>{title}</Typography>
-        <Typography variant="body2"  sx={{color: 'text.secondary', marginBottom: 2}}>{subtitle}</Typography>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <Typography variant="caption"  sx={{color: 'text.secondary', mb: -0.5}}>{props.value.type}</Typography>
+          <Box sx={styles.period}>
+            <Typography variant="caption" sx={{color: 'text.secondary'}}> {props.value.period}</Typography>
+          </Box>
+        </div>
+        <Typography variant="body1" gutterBottom sx={{color: 'text.primary'}}>{props.value.name}</Typography>
+        <Typography variant="body2"  sx={{color: 'text.secondary', mb: 1}}>{props.value.institution}</Typography>
         <Link
           component="button"
           variant="caption"
@@ -49,48 +53,72 @@ const papers = (title, subtitle, p) => {
         <Box sx={styles.circle}/>
       </Box>
     </div>
-  )
-  return (paper);
+  );
 } 
 
 const styles = {
   paper: {
-    backgroundColor: 'background.paper',
-    width: 380,
-    padding: 2.5,
-    marginBottom: 4
+    bgcolor: 'background.paper',
+    minWidth: 350,
+    p: 2.5,
+    mb: 4
   },
   period:{
-    float: 'right',
     borderRadius: 20,
-    width: 84,
+    mt: -1.5,
+    mr: -1.5,
+    pr: 1,
+    pl: 1,
     textAlign: 'center',
     bgcolor: 'background.default'
   },
   circles:{
-    width: 62,
+    width: 54,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 60,
-    marginLeft: -1
+    height: 42,
+    ml: -1
   },
   arrow: {
-    fontSize: 28,
+    fontSize: 26,
     color: 'background.paper',
   },
   circle: {
-    bgcolor: 'black',
+    bgcolor: 'background.contrast',
     width: 16,
     height: 16,
     borderRadius: 20,
     border: 3,
     borderColor: 'primary.main',
-  },
-  centerx: {
-    width: 4,
-    height: '95%',
-    backgroundColor: 'black'
   }
 }
+
+const educationItems = [
+  {
+    id: 1, 
+    type: 'Técnico',
+    name: 'Comunicação Visual', 
+    institution: 'Etec Rocha Mendes',
+    period:  '2009 - 2010',
+    obs: ''
+  },
+  {
+    id: 2, 
+    type: 'Bacharelado',
+    name: 'Ciência e Tecnologia', 
+    institution: 'UFABC - Universidade Federal do ABC',
+    period:  '2014 - 2015',
+    obs: ''
+  },
+  {
+    id: 3, 
+    type: 'Tecnólogo',
+    name: 'Análise e Desevolvimento de Sistemas', 
+    institution: 'FATEC - Faculdade de Tecnologia de São Paulo',
+    period:  '2018 - Atualmente',
+    obs: ''
+  }
+]
+
 export default Timeline;
