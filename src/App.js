@@ -1,42 +1,47 @@
 import './App.css';
-//import Profile from './components/Profile';
-import Why from './components/Material';
-import { ThemeProvider, Box, Container, Grid, Paper } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
-import { green, purple } from '@mui/material/colors';
-import { styled } from '@mui/material/styles';
-import Checkbox from '@mui/material/Checkbox';
+//import { ThemeProvider} from  '@material-ui/core/styles';
+import { useState } from 'react';
+import {  ThemeProvider, Box, Grid, IconButton, useMediaQuery} from '@mui/material';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+
+//import { Brightness4Icon, Brightness7Icon } from '@mui/icons-material';
 import Profile from './components/Profile';
 import Timeline from './components/Timeline';
-
-
+import {darkTheme, lightTheme} from './themes';
 
 function App() {
-  const theme = createTheme({
-    palette: {
-      mode: 'dark',
-      primary: {
-        main: purple[500],
-      },
-      secondary: {
-        main: green[500],
-      }
-    },
-  });
+  const [ theme, setTheme ] = useState(darkTheme);
+  const matches = useMediaQuery('(min-width:700px)');
 
-  const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+  function themeHandler(click){
+    if(click){
+      setTheme(lightTheme);
+    } else {
+      setTheme(darkTheme)
+    }
+  }
+  function Item(){
+    return (
+      <Box
+        sx={{
+          border: '1px solid'
+        }}
+      />
+    )
+  }
+  
 
   return (
-    <div className="App">
-      <ThemeProvider  theme={theme}>
-      <Box sx={{ flexGrow: 1, p: 3 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={3}>
+    <ThemeProvider  theme={theme}>
+    <Box sx={{backgroundColor: 'background.default'}}>
+      <div  style={{position: 'absolute', right: 10}}>
+       <ChangeTheme onClick={themeHandler}></ChangeTheme>
+      </div>
+      <Box sx={{ flexGrow: 1, p: 2 }}>
+      <span>{`(min-width:600px) matches: ${matches}`}</span>
+        <Grid container>
+          <Grid item sx={12}  sm={4} md={3} lg={2}>
             <Box
               sx={{
                 bgcolor: 'background.paper',
@@ -47,24 +52,47 @@ function App() {
               <Profile></Profile>
             </Box>
           </Grid>
-          <Grid item xs={9}>
+          <Grid item sx={12}  sm={8} md={9} lg={10}>
             <Box
               sx={{
-                bgcolor: 'background.paper',
-                height: '94vh'
+                height: '94vh',
+                bgcolor: 'background.test'
               }} 
             >
               <Timeline></Timeline>
-              <Why></Why> 
             </Box>
           </Grid>
         </Grid>
       </Box>
-     
-      </ThemeProvider>
+    </Box>
+    </ThemeProvider>
   );
-    </div>
-  );
+}
+
+const ChangeTheme = (props) => {
+  const [click, setClick] = useState(false);
+  function clickHandler() {
+    props.onClick(!click)
+    setClick(!click)
+  }
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        width: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        bgcolor: 'background.default',
+        color: 'text.primary',
+        borderRadius: 1,
+        p: 1,
+      }}
+    >
+      <IconButton sx={{ ml: 1 }} onClick={clickHandler} color="inherit">
+        {  click ? <Brightness7Icon /> : <Brightness4Icon />}
+      </IconButton>
+    </Box>
+  )
 }
 
 export default App;
