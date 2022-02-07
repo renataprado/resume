@@ -6,17 +6,24 @@ function Timeline(){
     <Box
       sx={{
         height: '90vh', 
-        width: '100%',
-        p: 2  
+        p: 2,
+        border: 1
       }}
     >
       <Typography variant="h5" gutterBottom sx={{color: 'text.primary', p: 3}}>
         Educação
       </Typography>
-      <Box sx={{display: 'flex', height: '90%', justifyContent: 'flex-start'}}>
-        <Box  sx={{position: 'relative', left: 13}}>
+      <Box sx={{display: 'flex', height: '90%', justifyContent: 'flex-start', border: 1}}>
+        <Box  sx={
+          {position: 'relative', 
+          display:'flex', 
+          flexDirection: 'column', 
+          justifyContent: 'space-evenly', 
+          left: 13, 
+          border: 1}
+          }>
           {educationItems.map((item) =>
-            <EducationItem key={item.id} value={item}/>
+            <Item key={item.id} value={item}/>
           )}
         </Box>
         <Box sx={{width: 5, height: '95%', bgcolor: 'background.contrast'}}/>
@@ -25,7 +32,7 @@ function Timeline(){
   )
 }
 
-const EducationItem = (props) => {    
+const Item = (props) => {    
   return (
     <div style={{display: 'flex'}}>
       <Box sx={styles.paper}>
@@ -59,7 +66,7 @@ const EducationItem = (props) => {
 const styles = {
   paper: {
     bgcolor: 'background.paper',
-    minWidth: 350,
+    minWidth: 300,
     p: 2.5,
     mb: 4
   },
