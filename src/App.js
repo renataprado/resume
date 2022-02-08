@@ -4,8 +4,6 @@ import { useState } from 'react';
 import {  ThemeProvider, Box, Grid, IconButton, useMediaQuery} from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-
-//import { Brightness4Icon, Brightness7Icon } from '@mui/icons-material';
 import Profile from './components/Profile';
 import Timeline from './components/Timeline';
 import {darkTheme, lightTheme} from './themes';
