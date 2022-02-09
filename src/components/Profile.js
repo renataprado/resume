@@ -6,7 +6,6 @@ function Profile() {
     return (
       <Box
         sx={{
-          bgcolor: 'background.paper',
           p: 2,
           display: 'flex', 
           flexDirection:'column',  
@@ -26,19 +25,5 @@ function Profile() {
 }
 
 const styles = {
-  container: {
-    width: '30vh',
-    height: '95vh',
-    margin: '10px',
-    padding: '10px',
-    borderRadius: '12px'
-  },
-
-  header:{
-    h2: {
-      color: 'white',
-      backgroundColor: '#192734'
-    }
-  }
 }
 export default Profile;
