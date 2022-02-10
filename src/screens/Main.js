@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useState } from 'react';
-import { Box, Grid, Collapse,
+import { Box, Grid, Collapse, Typography,
   List, 
   ListItem, 
   ListItemText, 
@@ -14,39 +14,20 @@ import Timeline from '../components/Timeline';
 
 function Main(props){
   const isMobile = props.mobile;
-  const [openEduc, setOpenEduc] = useState(false);
-  const [open, setOpen] = useState(false);
-  const handleClick = () => {
-    setOpen(!open);
-  };
-  const handleClickEduc = () => {
-    setOpenEduc(!openEduc);
-  };
 
   if(isMobile){
     return(
-      <Box sx={{pt: 4}}>
+      <Box sx={{pt: 6}}>
         <List
           sx={{ 
             width: '100%', 
-            bgcolor: 'background.paper' 
+            bgcolor: 'background.default'
           }}
           component="nav"
         >
-          <ListItemButton onClick={handleClick}>
-            <ListItemText primary="Profile" />  
-          </ListItemButton>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Profile></Profile>
-          </Collapse>
-          <ListItemButton onClick={handleClickEduc}>
-            <ListItemText primary="Educação" />  
-          </ListItemButton>
-          <Collapse in={openEduc} timeout="auto" unmountOnExit>
-            <Timeline mobile={true}></Timeline>
-          </Collapse>
+          <NavItem title={'Perfil'} component={<Profile/>}></NavItem>
+          <NavItem title={'Educação'} component={<Timeline mobile={true}/>}></NavItem>
         </List>
-
       </Box>
     )
   }
@@ -76,9 +57,39 @@ function Main(props){
           </Grid>
         </Grid>
     </Box>
-
   )
 }
+
+const NavItem = (props) => {
+  const [open, setOpen] = useState(false);
+  const handleClick = () => {setOpen(!open)};
+  return(
+    <div>
+      <ListItemButton sx={!open ? styles.listItem: ''} onClick={handleClick}>
+        <Typography 
+            variant="h6" 
+            gutterBottom 
+            sx={{color: 'text.primary', p: 2}}
+          > 
+          {props.title} 
+        </Typography>
+      </ListItemButton>
+      <Collapse  sx={styles.collapse} in={open} timeout="auto" unmountOnExit>
+        {props.component}
+      </Collapse>
+    </div>
+  )
+}
+
+const styles = {
+  collapse:{
+    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px'
+  },
+  listItem: {
+    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px'
+  }
+}
+
 
 export default Main
 

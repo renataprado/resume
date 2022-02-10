@@ -9,7 +9,7 @@ function Timeline(props){
       sx={{
         bgcolor: 'background.default',
         height: '90vh', 
-        p: 2
+        p: 1
       }}
     >
       {!mobile ? 

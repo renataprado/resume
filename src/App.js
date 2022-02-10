@@ -36,7 +36,7 @@ function App() {
   }
 
   const responsive = {
-    mobile: width <= 600
+    mobile: width <= 950
   }
   
   // return (
@@ -49,7 +49,7 @@ function App() {
 
   return (
     <ThemeProvider  theme={theme}>
-    <Box sx={{width: '100%', height: '100vh', bgcolor: 'background.default'}}>
+    <Box sx={{width: '100%', height: '110vh', bgcolor: 'background.default'}}>
       <div  style={{position: 'absolute', right: 10}}>
        <ChangeTheme onClick={themeHandler}></ChangeTheme>
       </div>

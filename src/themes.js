@@ -43,20 +43,3 @@ export const lightTheme = createTheme({
       }
     },
   });
-
-  // export const lightTheme = createTheme({
-  //   palette: {
-  //     mode: 'light',
-  //     primary: {
-  //       main: purple[400],
-  //     },
-  //     secondary: {
-  //       main: green[500],
-  //     },
-  //     background: {
-  //       default: '#fef0ff',
-  //       paper: pink[50]
-  //     },
-  //     line:  pink[100]
-  //   },
-  // });
