@@ -3,31 +3,40 @@ import { Box, Link, Typography } from '@mui/material';
 import TimelineItem from './TimelineItem';
 
 function Timeline(props){
+  const mobile = props.mobile;
   return(
     <Box
       sx={{
+        display: 'flex', 
+        flexDirection:'column',  
+        alignItems: 'center', 
         height: '90vh', 
-        p: 2,
-        border: 1
+        p: 1
       }}
     >
-      <Typography variant="h5" gutterBottom sx={{color: 'text.primary', p: 3}}>
-        Educação
-      </Typography>
-      <Box sx={{display: 'flex', height: '90%', justifyContent: 'flex-start', border: 1}}>
+      {!mobile ? 
+        <Typography 
+          variant="h5" 
+          gutterBottom 
+          sx={{color: 'text.primary', p: 3}}
+        > 
+          Educação 
+        </Typography> : <Box sx={{mb: -1}}/>
+      }
+
+      <Box sx={{display: 'flex', minHeight: 500, height: '90%', justifyContent: 'flex-start' }}>
         <Box sx={
           {position: 'relative', 
           display:'flex', 
           flexDirection: 'column', 
           justifyContent: 'space-evenly', 
-          left: 13, 
-          border: 1}
+          left: 13}
         }>
           {educationItems.map((item) =>
             <TimelineItem key={item.id} value={item}/>
           )}
         </Box>
-        <Box sx={{width: 5, height: '95%', bgcolor: 'background.contrast'}}/>
+        <Box sx={{width: 5,  height: '95%', bgcolor: 'background.contrast'}}/>
       </Box>
     </Box>
   )

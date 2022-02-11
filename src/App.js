@@ -1,67 +1,49 @@
 import './App.css';
 //import { ThemeProvider} from  '@material-ui/core/styles';
-import { useState } from 'react';
-import {  ThemeProvider, Box, Grid, IconButton, useMediaQuery} from '@mui/material';
+import { useState, useEffect } from 'react';
+import {  ThemeProvider, Box, IconButton, useMediaQuery} from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import Profile from './components/Profile';
-import Timeline from './components/Timeline';
+import Main from './screens/Main';
+
 import {darkTheme, lightTheme} from './themes';
 
 function App() {
   const [ theme, setTheme ] = useState(darkTheme);
-  const matches = useMediaQuery('(min-width:700px)');
+  const [ width, setWindowWidth ] = useState(0); 
+
+  useEffect(() => { 
+    //Call updateDimensions to set the initial width to the current window size
+    updateDimensions();
+    //Add the event listener when the Component mounts
+    window.addEventListener('resize', updateDimensions);
+    return () => 
+      //Remove the event listener when the Component unmounts
+      window.removeEventListener('resize',updateDimensions);    
+  }, [])
+
+  const updateDimensions = () => {
+    const width = window.innerWidth
+    setWindowWidth(width)
+  }
 
   function themeHandler(click){
-    if(click){
-      setTheme(lightTheme);
-    } else {
-      setTheme(darkTheme)
-    }
+    click ? setTheme(lightTheme) : setTheme(darkTheme)
   }
-  function Item(){
-    return (
-      <Box
-        sx={{
-          border: '1px solid'
-        }}
-      />
-    )
+
+  const responsive = {
+    mobile: width <= 600
   }
-  
 
   return (
     <ThemeProvider  theme={theme}>
-    <Box sx={{backgroundColor: 'background.default'}}>
+    <Box sx={{width: '100%', height: '100vh', bgcolor: 'background.default'}}>
       <div  style={{position: 'absolute', right: 10}}>
        <ChangeTheme onClick={themeHandler}></ChangeTheme>
       </div>
-      <Box sx={{ flexGrow: 1, p: 2 }}>
-      <span>{`(min-width:600px) matches: ${matches}`}</span>
-        <Grid container>
-          <Grid item sx={12}  sm={4} md={3} lg={2}>
-            <Box
-              sx={{
-                bgcolor: 'background.paper',
-                minWidth: '10vh',
-                height: '94vh'
-              }}
-            >
-              <Profile></Profile>
-            </Box>
-          </Grid>
-          <Grid item sx={12}  sm={8} md={9} lg={10}>
-            <Box
-              sx={{
-                height: '94vh',
-                bgcolor: 'background.test'
-              }} 
-            >
-              <Timeline></Timeline>
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
+      <span>{`width: ${width}`}</span>
+      <span>{` ${responsive.mobile}`}</span>
+      <Main mobile={responsive.mobile}></Main>
     </Box>
     </ThemeProvider>
   );
