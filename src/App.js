@@ -28,28 +28,16 @@ function App() {
   }
 
   function themeHandler(click){
-    if(click){
-      setTheme(lightTheme);
-    } else {
-      setTheme(darkTheme)
-    }
+    click ? setTheme(lightTheme) : setTheme(darkTheme)
   }
 
   const responsive = {
-    mobile: width <= 950
+    mobile: width <= 600
   }
-  
-  // return (
-  //   <>
-  //     <Header showTopNavMenu={responsive.showTopNavMenu}/>
-  //     <Main />
-  //   </>
-  // )
-  
 
   return (
     <ThemeProvider  theme={theme}>
-    <Box sx={{width: '100%', height: '110vh', bgcolor: 'background.default'}}>
+    <Box sx={{width: '100%', height: '100vh', bgcolor: 'background.default'}}>
       <div  style={{position: 'absolute', right: 10}}>
        <ChangeTheme onClick={themeHandler}></ChangeTheme>
       </div>

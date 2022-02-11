@@ -49,7 +49,7 @@ function Main(props){
             <Box
               sx={{
                 height: '94vh',
-                bgcolor: 'background.test'
+                bgcolor: 'background.test',
               }} 
             >
               <Timeline></Timeline>

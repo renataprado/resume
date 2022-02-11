@@ -7,7 +7,9 @@ function Timeline(props){
   return(
     <Box
       sx={{
-        bgcolor: 'background.default',
+        display: 'flex', 
+        flexDirection:'column',  
+        alignItems: 'center', 
         height: '90vh', 
         p: 1
       }}
@@ -19,10 +21,10 @@ function Timeline(props){
           sx={{color: 'text.primary', p: 3}}
         > 
           Educação 
-        </Typography> : <Box sx={{mb: -2}}/>
+        </Typography> : <Box sx={{mb: -1}}/>
       }
 
-      <Box sx={{display: 'flex', height: '90%', justifyContent: 'flex-start' }}>
+      <Box sx={{display: 'flex', minHeight: 500, height: '90%', justifyContent: 'flex-start' }}>
         <Box sx={
           {position: 'relative', 
           display:'flex', 
@@ -34,7 +36,7 @@ function Timeline(props){
             <TimelineItem key={item.id} value={item}/>
           )}
         </Box>
-        <Box sx={{width: 5, height: '95%', bgcolor: 'background.contrast'}}/>
+        <Box sx={{width: 5,  height: '95%', bgcolor: 'background.contrast'}}/>
       </Box>
     </Box>
   )
