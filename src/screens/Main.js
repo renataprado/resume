@@ -48,8 +48,7 @@ function Main(props){
           <Grid item sm={8} md={9} lg={10}>
             <Box
               sx={{
-                height: '94vh',
-                bgcolor: 'background.test',
+                height: '94vh'
               }} 
             >
               <Timeline></Timeline>

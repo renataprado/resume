@@ -3,7 +3,7 @@ import { Box, Link, Typography } from '@mui/material';
 
 function TimelineItem(props){
   return(
-    <div style={{display: 'flex'}}>
+    <div className="item" style={{display: 'flex'}}>
       <Box sx={styles.paper}>
         <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
           <Typography variant="caption"  sx={{color: 'text.secondary', mb: -0.5}}>{props.value.uptitle}</Typography>

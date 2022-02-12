@@ -23,8 +23,7 @@ function Timeline(props){
           Educação 
         </Typography> : <Box sx={{mb: -1}}/>
       }
-
-      <Box sx={{display: 'flex', minHeight: 500, height: '90%', justifyContent: 'flex-start' }}>
+      <Box sx={{position: 'relative', display: 'flex', minHeight: 500, height: '90%', justifyContent: 'flex-start'}}>
         <Box sx={
           {position: 'relative', 
           display:'flex', 
@@ -36,11 +35,17 @@ function Timeline(props){
             <TimelineItem key={item.id} value={item}/>
           )}
         </Box>
-         <Box className='teste' sx={{width: 5,  height: '95%', bgcolor: 'background.contrast'}}/>
+        <Box className='lineItems' sx={{position:'absolute', top: 0, left: 0, width: 360, bgcolor: 'background.default'}}></Box>
+        <Box className='line' sx={{width: 5,  height: '95%', bgcolor: 'background.contrast'}}/>
       </Box>
+
     </Box>
   )
 }
+/*
+<Box sx={{position:'relative', right:380, width: 510, bgcolor: 'black'}}>
+s
+</Box>*/
 
 const educationItems = [
   {

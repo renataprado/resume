@@ -14,10 +14,23 @@
 /*.MuiLinearProgress-root'*/
 .App-logo {  height: 40vmin;  pointer-events: none;  animation: reveal 2s linear;}
 
-.teste {
-  animation: reveal 5s linear;
+.line {
+  animation: reveal 3s linear;
 }
 
+
+.item{
+  animation: fadein 3s
+}
+
+@keyframes fadein {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+@keyframes slideout {
+  0% { margin-top: 0; height: 160%;}
+  100% { margin-top: 150%; height: 0%; }
+}
 @keyframes reveal {
   0% {opacity:0;height:0px;}
   10% {opacity:1;height:10%;}
