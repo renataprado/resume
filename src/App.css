@@ -1,4 +1,36 @@
+
+
 .App {
-  background-color: 'background.default',;
   margin: 0;
 }
+
+.progress.MuiLinearProgress-root {
+  background-color: #0a1929
+}
+/* 
+.progress{
+  background-color: #0a1929
+} */
+/*.MuiLinearProgress-root'*/
+.App-logo {  height: 40vmin;  pointer-events: none;  animation: reveal 2s linear;}
+
+.teste {
+  animation: reveal 5s linear;
+}
+
+@keyframes reveal {
+  0% {opacity:0;height:0px;}
+  10% {opacity:1;height:10%;}
+  50% {opacity:1;height:50%;}
+  80% {opacity:1;height:90%;}
+}
+
+@keyframes App-logo-spin {  
+  from {    
+    transform: rotate(0deg);  
+  }  
+  to {    
+    transform: rotate(360deg);  
+  }}
+
+  

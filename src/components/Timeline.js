@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Link, Typography } from '@mui/material';
+import { Box, Link, Typography, LinearProgress } from '@mui/material';
 import TimelineItem from './TimelineItem';
 
 function Timeline(props){
@@ -36,7 +36,7 @@ function Timeline(props){
             <TimelineItem key={item.id} value={item}/>
           )}
         </Box>
-        <Box sx={{width: 5,  height: '95%', bgcolor: 'background.contrast'}}/>
+         <Box className='teste' sx={{width: 5,  height: '95%', bgcolor: 'background.contrast'}}/>
       </Box>
     </Box>
   )
