@@ -52,7 +52,7 @@ const Skill = (props) => {
   )
 }
 
-const skills = [{title: 'Angular', progress: '70'}, {title: 'React', progress: '60'}, {title: 'Node', progress: '60'}]
+const skills = [{title: 'Angular', progress: 70}, {title: 'React', progress: 60}, {title: 'Node', progress: 60}]
 
 const styles = {
 }
