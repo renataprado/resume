@@ -10,8 +10,6 @@ import { Box, Grid, Collapse, Typography,
 import Profile from '../components/Profile';
 import Timeline from '../components/Timeline';
 
-
-
 function Main(props){
   const isMobile = props.mobile;
 
@@ -26,7 +24,7 @@ function Main(props){
           component="nav"
         >
           <NavItem title={'Perfil'} component={<Profile/>}></NavItem>
-          <NavItem title={'Educação'} component={<Timeline mobile={true}/>}></NavItem>
+          <NavItem title={'Educação'} component={<Timeline  items={educationItems} mobile={true}/>}></NavItem>
         </List>
       </Box>
     )
@@ -48,10 +46,10 @@ function Main(props){
           <Grid item sm={8} md={9} lg={10}>
             <Box
               sx={{
-                height: '94vh'
+                height: '92vh'
               }} 
             >
-              <Timeline></Timeline>
+              <Timeline title="Educação" items={educationItems}></Timeline>
             </Box>
           </Grid>
         </Grid>
@@ -63,8 +61,8 @@ const NavItem = (props) => {
   const [open, setOpen] = useState(false);
   const handleClick = () => {setOpen(!open)};
   return(
-    <div>
-      <ListItemButton sx={!open ? styles.listItem: ''} onClick={handleClick}>
+    <Box>
+      <ListItemButton sx={!open ? styles.listItem: styles.none} onClick={handleClick}>
         <Typography 
             variant="h6" 
             gutterBottom 
@@ -76,18 +74,50 @@ const NavItem = (props) => {
       <Collapse  sx={styles.collapse} in={open} timeout="auto" unmountOnExit>
         {props.component}
       </Collapse>
-    </div>
+    </Box>
   )
 }
 
 const styles = {
   collapse:{
-    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px'
+    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px',
+    pb: 2
   },
   listItem: {
     boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px'
+  },
+  none: {
+    boxShadow: '0'
   }
 }
+
+
+const educationItems = [
+  {
+    id: 1, 
+    uptitle: 'Técnico',
+    title: 'Comunicação Visual', 
+    subtitle: 'Etec Rocha Mendes',
+    period:  '2009 - 2010',
+    obs: ''
+  },
+  {
+    id: 2, 
+    uptitle: 'Bacharelado',
+    title: 'Ciência e Tecnologia', 
+    subtitle: 'UFABC - Universidade Federal do ABC',
+    period:  '2014 - 2015',
+    obs: ''
+  },
+  {
+    id: 3, 
+    uptitle: 'Tecnólogo',
+    title: 'Análise e Desevolvimento de Sistemas', 
+    subtitle: 'FATEC - Faculdade de Tecnologia de São Paulo',
+    period:  '2018 - Atualmente',
+    obs: ''
+  }
+]
 
 
 export default Main

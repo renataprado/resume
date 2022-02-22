@@ -15,16 +15,19 @@
 .App-logo {  height: 40vmin;  pointer-events: none;  animation: reveal 2s linear;}
 
 .line {
-  animation: reveal 3s linear;
+  animation: reveal 1s linear;
 }
 
 
 .item{
-  animation: fadein 3s
+  animation: fadein 0.5s;
 }
 
+@keyframes late{
+}
 @keyframes fadein {
   0% {opacity:0;}
+  50% {opacity:0.4;}
   100% {opacity:1;}
 }
 @keyframes slideout {
@@ -32,10 +35,16 @@
   100% { margin-top: 150%; height: 0%; }
 }
 @keyframes reveal {
-  0% {opacity:0;height:0px;}
+  0% {opacity:0;height:0%;}
   10% {opacity:1;height:10%;}
   50% {opacity:1;height:50%;}
-  80% {opacity:1;height:90%;}
+  100% {opacity:1;height:100%;}
+}
+
+@keyframes reveal {
+  0% {height:0%;}
+  50% {height:50%;}
+  100% {height:100%;}
 }
 
 @keyframes App-logo-spin {  
