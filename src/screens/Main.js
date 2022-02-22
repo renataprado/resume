@@ -46,10 +46,10 @@ function Main(props){
           <Grid item sm={8} md={9} lg={10}>
             <Box
               sx={{
-                height: '94vh'
+                height: '92vh'
               }} 
             >
-              <Timeline items={educationItems}></Timeline>
+              <Timeline title="Educação" items={educationItems}></Timeline>
             </Box>
           </Grid>
         </Grid>
@@ -80,13 +80,14 @@ const NavItem = (props) => {
 
 const styles = {
   collapse:{
-    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px'
+    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px',
+    pb: 2
   },
   listItem: {
     boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px'
   },
   none: {
-    display: 'none'
+    boxShadow: '0'
   }
 }
 
