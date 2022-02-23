@@ -8,16 +8,15 @@ function Timeline(props){
   return (
     <Box
       sx={{
-        display: "flex",
-        flexDirection: "column",
         p: 2,
-        height: "100%",
+        minHeight: 540,
+        mt: 2
       }}
     >
       {!mobile ? 
-        (<Typography variant="h5" gutterBottom
-          sx={{ color: "text.primary", p: 3 }}>
-          {props.title}</Typography>) 
+        (<Typography variant="h6" sx={{ color: "text.primary", mb: 2 }}>
+          {props.title}
+        </Typography>) 
         : (<Box />)
       }
       <Box
@@ -28,7 +27,7 @@ function Timeline(props){
         }}
       >
         {items.map((item) => (
-          <Box sx={{height: '100%', maxHeight: 180}}>
+          <Box sx={{height: '100%', maxHeight: 160}}>
             <TimelineItem key={item.id} value={item} />
           </Box>
         ))}

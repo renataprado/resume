@@ -31,14 +31,14 @@ export const lightTheme = createTheme({
     palette: {
       mode: 'light',
       primary: {
-        main: purple[400],
+        main: purple[600],
       },
       secondary: {
         main: green[500],
       },
       background: {
-        default: grey[50],
-        paper: purple[50],
+        default: purple[50],
+        paper: '#e6d3e8',
         contrast: purple[100]
       }
     },

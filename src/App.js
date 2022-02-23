@@ -32,7 +32,7 @@ function App() {
   }
 
   const responsive = {
-    mobile: width <= 600
+    mobile: width <= 690
   }
 
   return (
@@ -41,8 +41,8 @@ function App() {
       <div  style={{position: 'absolute', right: 10}}>
        <ChangeTheme onClick={themeHandler}></ChangeTheme>
       </div>
-      <span>{`width: ${width}`}</span>
-      <span>{` ${responsive.mobile}`}</span>
+      {/* <span>{`width: ${width}`}</span>
+      <span>{` ${responsive.mobile}`}</span> */}
       <Main mobile={responsive.mobile}></Main>
     </Box>
     </ThemeProvider>
