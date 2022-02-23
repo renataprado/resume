@@ -29,6 +29,9 @@ function TimelineItem(props){
           <Typography variant="body2" sx={{ color: "text.secondary", mb: 1 }}>
             {props.value.subtitle}
           </Typography>
+          <Typography variant="body2" sx={{ color: "text.secondary", mb: 1 }}>
+            {props.value.obs}
+          </Typography>
         </Box>
         <Box sx={styles.arrow}>&#11208;</Box>
         <Box
@@ -78,7 +81,8 @@ const styles = {
     height: '50%',
     p: 3,
     mb: 2,
-    animation: 'fadein 0.3s'
+    animation: 'fadein 0.3s',
+    boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 3px 0px'
   },
   period:{
     borderRadius: 20,
@@ -94,7 +98,7 @@ const styles = {
     ml: -1,
     mr: 1.5,
     fontSize: 26,
-    color: 'background.paper'
+    color: 'background.paper',
   },
   circle: {
     position: 'relative',

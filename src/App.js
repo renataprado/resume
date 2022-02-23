@@ -32,7 +32,7 @@ function App() {
   }
 
   const responsive = {
-    mobile: width <= 600
+    mobile: width <= 690
   }
 
   return (

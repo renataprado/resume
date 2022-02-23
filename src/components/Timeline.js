@@ -10,8 +10,7 @@ function Timeline(props){
       sx={{
         display: "flex",
         flexDirection: "column",
-        p: 2,
-        height: "100%",
+        p: 2
       }}
     >
       {!mobile ? 
