@@ -13,34 +13,28 @@ function Main(props){
   if(isMobile){
     return(
       <Box sx={{pt: 6}}>
-        <List
-          sx={{ 
-            width: '100%', 
-            bgcolor: 'background.default'
-          }}
-          component="nav"
-        >
+        <List sx={{ width: '100%', bgcolor: 'background.default' }} component="nav">
           <NavItem title={'Perfil'} component={<Profile/>}></NavItem>
           <NavItem title={'Educação'} 
             component={<Timeline  items={educationItems} mobile={true}/>}></NavItem>
-          <NavItem title={'Experiencia Profissional'} 
+          <NavItem title={'Experiência Profissional'} 
             component={<Timeline items={workexpItems} mobile={true}/>}></NavItem>
         </List>
       </Box>
     )
   }
   return( 
-    <Box sx={{ p: 1, bgcolor: 'background.default' }}>
+    <Box sx={{ p: 1, bgcolor: 'background.default'}}>
         <Grid container spacing={2} justifyContent="center">
           <Grid item sm={4} md={3} lg={2}>
-            <Box sx={{ bgcolor: 'background.paper', minWidth:  220, height: '94vh'  }}>
+            <Box sx={{ bgcolor: 'background.paper', minWidth:  220, height: '98vh'  }}>
               <Profile></Profile>
             </Box>
           </Grid>
           <Grid item sm={8} md={9} lg={10}>
             <Box sx={styles.gridContainer}>
               <Timeline title="Educação" items={educationItems}></Timeline> 
-              <Timeline title="Experiencia Profissional" items={workexpItems}></Timeline>
+              <Timeline title="Experiência Profissional" items={workexpItems}></Timeline>
             </Box>
           </Grid>
         </Grid>
@@ -81,9 +75,10 @@ const styles = {
     boxShadow: '0'
   },
   gridContainer: { 
-    height: '94vh', 
+    height: '98vh', 
     display: 'flex', 
     justifyContent: 'space-evenly',
+    alignItems: 'center',
     flexFlow: 'row wrap', 
     overflow: 'auto'
   }
@@ -94,8 +89,8 @@ const workexpItems = [
     id: 1, 
     uptitle: 'Desenvolvedora de Software',
     title: 'IBM', 
-    subtitle: 'Tecnology Garage ',
-    period:  '03/21 - 12/21',
+    subtitle: 'Technology Garage ',
+    period:  'mar 2021 - dez 2021',
     obs: ''
   },
   {
@@ -103,7 +98,7 @@ const workexpItems = [
     uptitle: 'Estágiaria',
     title: 'IBM', 
     subtitle: 'Cloud & Cognitive ',
-    period:  '09/19 - 02/21',
+    period:  'set 2019 - fev 2021',
     obs: ''
   },
   {
@@ -111,7 +106,7 @@ const workexpItems = [
     uptitle: 'Estágiaria',
     title: 'OneSoft', 
     subtitle: 'Desenvolvimento em C# ',
-    period:  '02/19 - 08/19',
+    period:  'fev 2019 - ago 2019',
     obs: ''
   },
 

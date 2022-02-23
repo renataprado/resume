@@ -11,7 +11,7 @@ function TimelineItem(props){
 
   if(active){
     return (
-      <div style={{ display: "flex", height: '100%'}} >
+      <div style={{ display: "flex", height: "24vh"}} >
         <Box sx={styles.paper}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} >
             <Typography variant="caption" sx={{ color: "text.secondary", mb: -1 }}>
@@ -48,8 +48,8 @@ function TimelineItem(props){
             sx={{
               height: "100%",
               bgcolor: "primary.main",
-              mt: -2.5,
-              width: 5}}
+              mt: -4,
+              width: 4}}
           />
         </Box>
       </div>
@@ -102,10 +102,10 @@ const styles = {
   },
   circle: {
     position: 'relative',
-    top: 8,
+    top: 10,
     bgcolor: 'primary.main',
-    width: 18,
-    height: 18,
+    width: 15,
+    height: 15,
     borderRadius: 20,
     animation: 'fadein 0.2s'
   }
