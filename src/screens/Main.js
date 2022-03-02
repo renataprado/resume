@@ -1,12 +1,15 @@
 
-import React from 'react';
 import { useState } from 'react';
-import { Box, Grid, Collapse, Typography,
+import Profile from '../components/Profile';
+import Timeline from '../components/Timeline';
+
+import { Box, 
+  Grid, 
+  Collapse, 
+  Typography,
   List, 
   ListItemButton,
   ListItemIcon } from '@mui/material';
-import Profile from '../components/Profile';
-import Timeline from '../components/Timeline';
 
 function Main(props){
   const isMobile = props.mobile;
@@ -48,11 +51,7 @@ const NavItem = (props) => {
   return(
     <Box>
       <ListItemButton sx={!open ? styles.listItem: styles.none} onClick={handleClick}>
-        <Typography 
-            variant="h6" 
-            gutterBottom 
-            sx={{color: 'text.primary', p: 2}}
-          > 
+        <Typography variant="h6" gutterBottom sx={{color: 'text.primary', p: 2}}> 
           {props.title} 
         </Typography>
       </ListItemButton>

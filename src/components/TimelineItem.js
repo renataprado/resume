@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Link, Typography } from '@mui/material';
 
 function TimelineItem(props){
   const [active, setActive] = useState(false);
-  const secs = (props.value.id - 1)*1000;
+  const secs = (props.value.id - 1)*600;
 
   useEffect(() => {
     const timer = setTimeout(() => setActive(true), secs);
@@ -11,7 +11,7 @@ function TimelineItem(props){
 
   if(active){
     return (
-      <div style={{ display: "flex", height: "24vh"}} >
+      <div style={{ display: "flex", height: "24vh",  animation: 'fadein 0.25s'}} >
         <Box sx={styles.paper}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} >
             <Typography variant="caption" sx={{ color: "text.secondary", mb: -1 }}>
@@ -49,7 +49,8 @@ function TimelineItem(props){
               height: "100%",
               bgcolor: "primary.main",
               mt: -4,
-              width: 4}}
+              width: 4,
+              animation: 'reveal 0.65s linear'}}
           />
         </Box>
       </div>
@@ -81,7 +82,6 @@ const styles = {
     height: '50%',
     p: 3,
     mb: 2,
-    animation: 'fadein 0.3s',
     boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 3px 0px'
   },
   period:{

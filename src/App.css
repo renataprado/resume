@@ -1,30 +1,18 @@
-
-
 .App {
   margin: 0;
 }
-
+/* 
 .progress.MuiLinearProgress-root {
   background-color: #0a1929
 }
-/* 
+
 .progress{
   background-color: #0a1929
 } */
 /*.MuiLinearProgress-root'*/
 .App-logo {  height: 40vmin;  pointer-events: none;  animation: reveal 2s linear;}
 
-.line {
-  animation: reveal 1s linear;
-}
 
-
-.item{
-  animation: fadein 0.5s;
-}
-
-@keyframes late{
-}
 @keyframes fadein {
   0% {opacity:0;}
   50% {opacity:0.4;}
