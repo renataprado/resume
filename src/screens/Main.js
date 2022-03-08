@@ -30,14 +30,27 @@ function Main(props){
     <Box sx={{ p: 1, bgcolor: 'background.default'}}>
         <Grid container spacing={2} justifyContent="center">
           <Grid item sm={4} md={3} lg={2}>
-            <Box sx={{ bgcolor: 'background.paper', minWidth:  220, height: '98vh'  }}>
+            <Box sx={{ bgcolor: 'background.paper', minWidth:  220, height: '96vh'  }}>
               <Profile></Profile>
             </Box>
           </Grid>
-          <Grid item sm={8} md={9} lg={10}>
-            <Box sx={styles.gridContainer}>
-              <Timeline title="Educação" items={educationItems}></Timeline> 
-              <Timeline title="Experiência Profissional" items={workexpItems}></Timeline>
+          <Grid item sm={8} md={9} lg={10} sx={{height: '96vh'}}>
+            <Box sx={{  height: '96vh', display: 'flex', overflow: 'auto'}}>
+              <Grid  container alignItems="center">
+                <Grid item sm={12} md={12} lg={6}>
+                  <Box sx={styles.centerBox}>
+                    <Timeline title="Educação" items={educationItems}></Timeline> 
+                  </Box>
+                </Grid>
+                <Grid item sm={12} md={12} lg={6}>
+                  <Box  sx={styles.centerBox}>
+                    <Timeline title="Experiência Profissional" items={workexpItems}></Timeline>
+                  </Box>
+                </Grid>
+                <Grid item sm={12} md={12} lg={12}>
+                  <Box sx={{height: '36vh'}}>Contato</Box>
+                </Grid>
+              </Grid>
             </Box>
           </Grid>
         </Grid>
@@ -73,13 +86,10 @@ const styles = {
   none: {
     boxShadow: '0'
   },
-  gridContainer: { 
-    height: '98vh', 
-    display: 'flex', 
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    flexFlow: 'row wrap', 
-    overflow: 'auto'
+  centerBox:{
+     display: "flex",
+     justifyContent:"center", 
+     height: '60vh',
   }
 }
 

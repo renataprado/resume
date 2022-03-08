@@ -11,7 +11,7 @@ function TimelineItem(props){
 
   if(active){
     return (
-      <div style={{ display: "flex", height: '100%', animation: 'fadein 0.25s'}} >
+      <Box sx={{ display: "flex", height: '100%', animation: 'fadein 0.25s'}} >
         <Box sx={styles.paper}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} >
             <Typography variant="caption" sx={{ color: "text.secondary", mb: 0 }}>
@@ -39,8 +39,7 @@ function TimelineItem(props){
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            height: "100%",
-            mb: 0}}
+            height: "100%"}}
         >
           <Box sx={styles.circle} />
           <Box
@@ -52,7 +51,7 @@ function TimelineItem(props){
               animation: 'reveal 0.65s linear'}}
           />
         </Box>
-      </div>
+      </Box>
     );
   } 
   return (<div></div>)

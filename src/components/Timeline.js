@@ -6,7 +6,7 @@ function Timeline(props){
   const items = props.items;
   
   return (
-    <Box sx={{ p: 2, height: '60vh', mt: 2, border: 1 }} >
+    <Box sx={{ mt: 2}} >
       {!mobile ? 
         (<Typography variant="h6" sx={{ color: "text.primary", mb: 2 }}>
           {props.title}
