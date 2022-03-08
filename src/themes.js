@@ -3,6 +3,7 @@ import { createTheme } from '@mui/material/styles';
 import { green, purple, blue, grey, pink, indigo} from '@mui/material/colors';
 
 export const darkTheme = createTheme({
+  color: blue,
     // typography: {
     //     fontFamily: [
     //       'Mukta',
@@ -13,6 +14,7 @@ export const darkTheme = createTheme({
       mode: 'dark',
       primary: {
         main: blue[600],
+        shadow: 'rgba(255, 255, 255, 0.2)'
       },
       secondary: {
         main: green[500],
@@ -28,10 +30,12 @@ export const darkTheme = createTheme({
   });
   
 export const lightTheme = createTheme({
+    color: purple,
     palette: {
       mode: 'light',
       primary: {
         main: purple[600],
+        shadow: 'rgba(0, 0, 0, 0.1)'
       },
       secondary: {
         main: green[500],

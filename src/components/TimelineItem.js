@@ -11,10 +11,10 @@ function TimelineItem(props){
 
   if(active){
     return (
-      <div style={{ display: "flex", height: "24vh",  animation: 'fadein 0.25s'}} >
+      <div style={{ display: "flex", height: '100%', animation: 'fadein 0.25s'}} >
         <Box sx={styles.paper}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} >
-            <Typography variant="caption" sx={{ color: "text.secondary", mb: -1 }}>
+            <Typography variant="caption" sx={{ color: "text.secondary", mb: 0 }}>
               {props.value.uptitle}
             </Typography>
             <Box sx={styles.period}>
@@ -44,11 +44,10 @@ function TimelineItem(props){
         >
           <Box sx={styles.circle} />
           <Box
-            className="line"
             sx={{
               height: "100%",
               bgcolor: "primary.main",
-              mt: -4,
+              mt: -2,
               width: 4,
               animation: 'reveal 0.65s linear'}}
           />
@@ -78,17 +77,18 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-around',
     bgcolor: 'background.paper',
-    minWidth: 300,
-    height: '50%',
-    p: 3,
+    width: 300,
+    pt: 2,
+    pb: 2,
+    pr: 3,
+    pl: 3,
     mb: 2,
     boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 3px 0px'
   },
   period:{
     borderRadius: 20,
-    mt: -1.5,
-    mr: -1.5,
-    mb: 1,
+    mr: -2,
+    mt: -1,
     pr: 1,
     pl: 1,
     textAlign: 'center',
@@ -97,7 +97,7 @@ const styles = {
   arrow: {
     ml: -1,
     mr: 1.5,
-    fontSize: 26,
+    fontSize: 24,
     color: 'background.paper',
   },
   circle: {

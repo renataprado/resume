@@ -6,7 +6,7 @@ function Timeline(props){
   const items = props.items;
   
   return (
-    <Box sx={{ p: 2, minHeight: '70%', mt: 2 }} >
+    <Box sx={{ p: 2, height: '60vh', mt: 2, border: 1 }} >
       {!mobile ? 
         (<Typography variant="h6" sx={{ color: "text.primary", mb: 2 }}>
           {props.title}
@@ -15,7 +15,7 @@ function Timeline(props){
       }
       <Box sx={{ display: "flex", flexDirection: "column", height: '100%'}}>
         {items.map((item, index) => ( 
-          <Box key={index} sx={{height: '100%', maxHeight: 160}}>
+          <Box key={index} sx={{}}>
             <TimelineItem  value={item} />
           </Box>
         ))}
