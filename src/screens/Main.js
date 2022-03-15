@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Profile from '../components/Profile';
 import Timeline from '../components/Timeline';
+import ContactMe from '../components/ContactMe';
 
 import { Box, 
   Grid, 
@@ -9,7 +10,10 @@ import { Box,
   Typography,
   List, 
   ListItemButton,
-  ListItemIcon } from '@mui/material';
+  ListItemIcon,
+  Paper, 
+  Link} from '@mui/material';
+
 
 function Main(props){
   const isMobile = props.mobile;
@@ -27,16 +31,16 @@ function Main(props){
     )
   }
   return( 
-    <Box sx={{ p: 1, bgcolor: 'background.default'}}>
-        <Grid container spacing={2} justifyContent="center">
+    <Box sx={{ p: 1}}>
+        <Grid container spacing={1}>
           <Grid item sm={4} md={3} lg={2}>
-            <Box sx={{ bgcolor: 'background.paper', minWidth:  220, height: '96vh'  }}>
+            <Box sx={{ bgcolor: 'background.paper', minWidth:  220, height: '98vh'  }}>
               <Profile></Profile>
             </Box>
           </Grid>
-          <Grid item sm={8} md={9} lg={10} sx={{height: '96vh'}}>
-            <Box sx={{  height: '96vh', display: 'flex', overflow: 'auto'}}>
-              <Grid  container alignItems="center">
+          <Grid item sm={8} md={9} lg={10} sx={{height: '98vh'}}>
+            <Box sx={{ height: '96vh', display: 'flex', overflow: 'auto'}}>
+              <Grid  container>
                 <Grid item sm={12} md={12} lg={6}>
                   <Box sx={styles.centerBox}>
                     <Timeline title="Educação" items={educationItems}></Timeline> 
@@ -48,7 +52,9 @@ function Main(props){
                   </Box>
                 </Grid>
                 <Grid item sm={12} md={12} lg={12}>
-                  <Box sx={{height: '36vh'}}>Contato</Box>
+                  <Box sx={{height: '36vh', display: "flex", justifyContent: 'center', mt: -1}}>
+                    <ContactMe/>
+                  </Box>
                 </Grid>
               </Grid>
             </Box>

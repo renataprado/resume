@@ -1,15 +1,14 @@
 
 import { createTheme } from '@mui/material/styles';
 import { green, purple, blue, grey, pink, indigo} from '@mui/material/colors';
-
 export const darkTheme = createTheme({
   color: blue,
-    // typography: {
-    //     fontFamily: [
-    //       'Mukta',
-    //       'sans-serif',
-    //     ].join(','),
-    // },
+    typography: {
+        fontFamily: [
+          'Rubik',
+          'sans-serif',
+        ].join(','),
+    },
     palette: {
       mode: 'dark',
       primary: {

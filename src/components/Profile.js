@@ -20,7 +20,6 @@ import avatar from "../assets/avatar1.jpg";
 import { height } from "@mui/system";
 
 function Profile() {
-
   const skills = [ "Angular", "React", "Node", "Git", "mongoDB", 'coisas'];
 
   const languages = [

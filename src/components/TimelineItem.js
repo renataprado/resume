@@ -76,7 +76,7 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'space-around',
     bgcolor: 'background.paper',
-    width: 300,
+    width: 320,
     pt: 2,
     pb: 2,
     pr: 3,
