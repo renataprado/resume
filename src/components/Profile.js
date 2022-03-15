@@ -20,7 +20,7 @@ import avatar from "../assets/avatar1.jpg";
 import { height } from "@mui/system";
 
 function Profile() {
-  const skills = [ "Angular", "React", "Node", "Git", "mongoDB", 'coisas'];
+  const skills = [ "JavaScript", "Angular", "React", "C#", "Docker", "NoSQL","Git", ];
 
   const languages = [
     { title: "Inglês", progress: 85 },
@@ -74,7 +74,7 @@ function Profile() {
             <Typography variant="h6" sx={styles.sectionTitle}>
               Habilidades
             </Typography>
-            <Box sx={{border:0, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'  }}>
+            <Box sx={{display: 'flex', flexWrap: 'wrap', gap: 0.5, justifyContent: 'space-evenly', p:1  }}>
               {skills.map((s, i)=>(<Chip sx={{mb:'0.5rem'}}label={s}/>))}
             </Box>
           </Box>
