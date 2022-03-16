@@ -86,15 +86,15 @@ function Profile() {
           direction="row" 
           justifyContent={'space-evenly'} 
           >
-          <IconButton aria-label="download pdf">
+          <Button aria-label="download pdf">
             <DownloadIcon  color="primary"/>
-          </IconButton>
-          <IconButton aria-label="github">
+          </Button>
+          <Button aria-label="github">
             <GitHubIcon  color="primary"/>
-          </IconButton>
-          <IconButton aria-label="linkedin">
+          </Button>
+          <Button aria-label="linkedin">
             <LinkedInIcon  color="primary" />
-          </IconButton>
+          </Button>
         </Stack>
       </Box>
     </Box>
@@ -111,7 +111,7 @@ const Language = (props) => {
       setProgress((prevProgress) =>
         prevProgress >= props.value.progress
           ? props.value.progress
-          : prevProgress + 5
+          : prevProgress + 2.5
       );
     }, 80);
     return () => {

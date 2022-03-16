@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Box, Link, Typography } from '@mui/material';
+import { height } from '@mui/system';
 
 function TimelineItem(props){
   const [active, setActive] = useState(false);
-  const secs = (props.value.id - 1)*600;
+  const secs = props.value.id * 500;
 
   useEffect(() => {
     const timer = setTimeout(() => setActive(true), secs);
@@ -11,10 +12,10 @@ function TimelineItem(props){
 
   if(active){
     return (
-      <Box sx={{ display: "flex", height: '100%', animation: 'fadein 0.25s'}} >
+      <Box sx={{ display: "flex", height: '100%'}} >
         <Box sx={styles.paper}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} >
-            <Typography variant="caption" sx={{ color: "text.secondary", mb: 0 }}>
+          <Box style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} >
+            <Typography variant="caption" sx={{ color: "text.secondary"}}>
               {props.value.uptitle}
             </Typography>
             <Box sx={styles.period}>
@@ -22,7 +23,7 @@ function TimelineItem(props){
                 {props.value.period}
               </Typography>
             </Box>
-          </div>
+          </Box>
           <Typography variant="body1" gutterBottom sx={{ color: "text.primary" }}>
             {props.value.title}
           </Typography>
@@ -42,19 +43,12 @@ function TimelineItem(props){
             height: "100%"}}
         >
           <Box sx={styles.circle} />
-          <Box
-            sx={{
-              height: "100%",
-              bgcolor: "primary.main",
-              mt: -2,
-              width: 4,
-              animation: 'reveal 0.65s linear'}}
-          />
+          <Box sx={styles.line}/>
         </Box>
       </Box>
     );
   } 
-  return (<div></div>)
+  return (<Box sx={{width: 400}} ></Box>)
 }
 function link() {
   return(
@@ -72,42 +66,50 @@ function link() {
 }
 const styles = {
   paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    bgcolor: 'background.paper',
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    bgcolor: "background.paper",
     width: 320,
     pt: 2,
     pb: 2,
     pr: 3,
     pl: 3,
-    mb: 2,
-    boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 3px 0px'
+    mt: 2.5,
+    boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px",
+    animation: 'fadein 0.3s'
   },
-  period:{
+  period: {
     borderRadius: 20,
     mr: -2,
-    mt: -1,
+    mt: -1.5,
     pr: 1,
     pl: 1,
-    textAlign: 'center',
-    bgcolor: 'background.default'
+    textAlign: "center",
+    bgcolor: "background.default",
   },
   arrow: {
     ml: -1,
-    mr: 1.5,
+    mr: 1,
+    mt: 2,
     fontSize: 24,
-    color: 'background.paper',
+    color: "background.paper",
   },
   circle: {
-    position: 'relative',
-    top: 10,
-    bgcolor: 'primary.main',
-    width: 15,
-    height: 15,
-    borderRadius: 20,
-    animation: 'fadein 0.2s'
+    position: "relative",
+    top: 25,
+    bgcolor: "primary.main",
+    width: 12,
+    height: 12,
+    borderRadius: 20
+  },
+  line: {
+    height: "100%",
+    bgcolor: "primary.main",
+    mt: -2,
+    width: 3,
+    animation: "reveal 0.5s linear",
   }
-}
+};
 
 export default TimelineItem;

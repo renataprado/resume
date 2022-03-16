@@ -26,42 +26,49 @@ function Main(props){
             component={<Timeline  items={educationItems} mobile={true}/>}></NavItem>
           <NavItem title={'Experiência Profissional'} 
             component={<Timeline items={workexpItems} mobile={true}/>}></NavItem>
+          <NavItem title={'Contato'} 
+            component={<ContactMe mobile={true}/>}></NavItem>
         </List>
       </Box>
     )
   }
-  return( 
-    <Box sx={{ p: 1}}>
-        <Grid container spacing={1}>
-          <Grid item sm={4} md={3} lg={2}>
-            <Box sx={{ bgcolor: 'background.paper', minWidth:  220, height: '98vh'  }}>
-              <Profile></Profile>
-            </Box>
-          </Grid>
-          <Grid item sm={8} md={9} lg={10} sx={{height: '98vh'}}>
-            <Box sx={{ height: '96vh', display: 'flex', overflow: 'auto'}}>
-              <Grid  container>
-                <Grid item sm={12} md={12} lg={6}>
-                  <Box sx={styles.centerBox}>
-                    <Timeline title="Educação" items={educationItems}></Timeline> 
-                  </Box>
-                </Grid>
-                <Grid item sm={12} md={12} lg={6}>
-                  <Box  sx={styles.centerBox}>
-                    <Timeline title="Experiência Profissional" items={workexpItems}></Timeline>
-                  </Box>
-                </Grid>
-                <Grid item sm={12} md={12} lg={12}>
-                  <Box sx={{height: '36vh', display: "flex", justifyContent: 'center', mt: -1}}>
-                    <ContactMe/>
-                  </Box>
-                </Grid>
-              </Grid>
-            </Box>
-          </Grid>
+  return (
+    <Box sx={{ p: 1, height: '98vh'}}>
+      <Grid container spacing={0}>
+        <Grid item sm={4} md={3} lg={2}>
+          <Box
+            sx={{ bgcolor: "background.paper", minWidth: 220, height: "98vh" }}
+          >
+            <Profile></Profile>
+          </Box>
         </Grid>
+        <Grid item sm={8} md={9} lg={10}>
+          <Box sx={{overflow: "auto", display: 'flex',  height: '98vh', }}>
+            <Grid container alignItems="center" rowSpacing={3}>
+              <Grid item  sm={12} md={12} lg={6}>
+                <Box sx={{ display: "flex", justifyContent:"center"}}>
+                  <Timeline title="Educação" items={educationItems}></Timeline>
+                </Box>
+              </Grid>
+              <Grid item sm={12} md={12} lg={6}>
+                <Box  sx={{ display: "flex", justifyContent:"center"}}>
+                  <Timeline
+                    title="Experiência Profissional"
+                    items={workexpItems}
+                  ></Timeline>
+                </Box>
+              </Grid>
+              <Grid item sm={12} md={12} lg={12}>
+                <Box sx={{ display: "flex", justifyContent:"center"}}>
+                  <ContactMe />
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
+        </Grid>
+      </Grid>
     </Box>
-  )
+  );
 }
 
 const NavItem = (props) => {
@@ -91,11 +98,6 @@ const styles = {
   },
   none: {
     boxShadow: '0'
-  },
-  centerBox:{
-     display: "flex",
-     justifyContent:"center", 
-     height: '60vh',
   }
 }
 

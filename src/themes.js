@@ -30,6 +30,12 @@ export const darkTheme = createTheme({
   
 export const lightTheme = createTheme({
     color: purple,
+    typography: {
+      fontFamily: [
+        'Rubik',
+        'sans-serif',
+      ].join(','),
+    },
     palette: {
       mode: 'light',
       primary: {
