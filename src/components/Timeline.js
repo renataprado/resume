@@ -8,7 +8,7 @@ function Timeline(props){
   return (
     <Box sx={{minHeight: '60vh'}}>
       {!mobile ? (
-        <Typography variant="h6" sx={{ color: "text.primary", mb: 1 }}>
+        <Typography variant="h6" sx={{ color: "text.primary"}}>
           {props.title}
         </Typography>
       ) : (

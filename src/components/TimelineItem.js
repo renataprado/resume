@@ -76,7 +76,7 @@ const styles = {
     pr: 3,
     pl: 3,
     mt: 2.5,
-    boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px",
+    boxShadow: "rgba(0, 0, 0, 0.25) 0px 3px 3px 0px",
     animation: 'fadein 0.3s'
   },
   period: {

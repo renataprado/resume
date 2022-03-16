@@ -19,21 +19,14 @@ import { bgcolor } from "@mui/system";
 
 function ContactMe(props) {
   const mobile = props.mobile;
-  const [active, setActive] = useState(false);
-  const secs = 0;
-
-  useEffect(() => {
-    const timer = setTimeout(() => setActive(true), secs);
-  }, []);
 
     return (
       <Box
         sx={{
           width: "80%",
-          height: "100%",
           display: "flex",
           flexDirection: "column",
-          overflow: "hidden",
+          p: 1
         }}
       >
         {!mobile ? (
@@ -48,7 +41,7 @@ function ContactMe(props) {
             width: "100%",
             height: 3,
             bgcolor: "primary.main",
-            animation: "slide 1200ms ",
+            animation: "slide-in 1200ms ",
             mb:2
           }}
         />
@@ -86,6 +79,7 @@ function ContactMe(props) {
     );
 }
 
+
 const styles = {
   paperContainer: {
     height: "8vh",
@@ -93,11 +87,10 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
-    boxShadow: "rgba(0, 0, 0, 0.15) 0px 3px 3px 0px",
+    boxShadow: "rgba(0, 0, 0, 0.25) 0px 3px 3px 0px",
     animation: 'fadein 0.4s'
   },
 };
-
 function EmailModal() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
