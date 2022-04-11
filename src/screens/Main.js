@@ -33,33 +33,28 @@ function Main(props){
     )
   }
   return (
-    <Box sx={{ p: 1, height: '98vh'}}>
+    <Box sx={{ p: 0, height: '100vh'}}>
       <Grid container spacing={0}>
         <Grid item sm={4} md={3} lg={2}>
-          <Box
-            sx={{ bgcolor: "background.paper", minWidth: 220, height: "98vh" }}
-          >
+          <Box sx={{ bgcolor: "background.paper", height: "99vh" }}>
             <Profile></Profile>
           </Box>
         </Grid>
         <Grid item sm={8} md={9} lg={10}>
-          <Box sx={{overflow: "auto", display: 'flex',  height: '98vh', }}>
-            <Grid container alignItems="center" rowSpacing={3}>
-              <Grid item  sm={12} md={12} lg={6}>
+          <Box sx={{overflow: "auto", display: 'flex', height: '99vh'}}>
+            <Grid container alignItems="center" rowSpacing={{ xs: 5,lg: 0}}>
+              <Grid item mt={6} xs={12} lg={6}>
                 <Box sx={{ display: "flex", justifyContent:"center"}}>
                   <Timeline title="Educação" items={educationItems}></Timeline>
                 </Box>
               </Grid>
-              <Grid item sm={12} md={12} lg={6}>
+              <Grid item xs={12} lg={6}>
                 <Box  sx={{ display: "flex", justifyContent:"center"}}>
-                  <Timeline
-                    title="Experiência Profissional"
-                    items={workexpItems}
-                  ></Timeline>
+                  <Timeline title="Experiência Profissional" items={workexpItems} />
                 </Box>
               </Grid>
-              <Grid item sm={12} md={12} lg={12}>
-                <Box sx={{ display: "flex", justifyContent:"center"}}>
+              <Grid sx={{ display: 'flex', justifyContent: 'center'}}item  lg={12}>
+                <Box sx={{width: '80%'}}>
                   <ContactMe />
                 </Box>
               </Grid>

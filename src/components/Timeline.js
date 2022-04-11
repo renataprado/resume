@@ -4,9 +4,12 @@ import TimelineItem from './TimelineItem';
 function Timeline(props){
   const mobile = props.mobile;
   const items = props.items;
-  
+
+
   return (
-    <Box sx={{minHeight: '60vh'}}>
+    <Box sx={{
+      minHeight: '60vh'
+      }}>
       {!mobile ? (
         <Typography variant="h6" sx={{ color: "text.primary"}}>
           {props.title}
@@ -16,13 +19,21 @@ function Timeline(props){
       )}
       <Box
         sx={{
-          width: "99%",
+          width: "75%",
           height: 3,
           bgcolor: "primary.main",
           animation: "slide-in 475ms ",
         }}
       />
-      <Box sx={{ display: "flex", flexDirection: "column", height: "90%", mt: 0.3 }}>
+      <Box 
+        sx={{ 
+          display: "flex", 
+          flexDirection: "column", 
+          alignItems: 'center',
+          height: "27rem",
+          pt:1 
+        }}
+      >
         {items.map((item, index) => (
           <Box key={index} sx={{}}>
             <TimelineItem value={item} />

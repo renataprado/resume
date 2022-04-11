@@ -23,10 +23,7 @@ function ContactMe(props) {
     return (
       <Box
         sx={{
-          width: "80%",
-          display: "flex",
-          flexDirection: "column",
-          p: 1
+          width: "100%"
         }}
       >
         {!mobile ? (
@@ -38,49 +35,54 @@ function ContactMe(props) {
         )}
         <Box
           sx={{
-            width: "100%",
+            width: "75%",
             height: 3,
             bgcolor: "primary.main",
             animation: "slide-in 1200ms ",
             mb:2
           }}
         />
-        <Grid
-          container
-          alignItems="center"
-          rowSpacing={2}
-          columnSpacing={{ sm: 2, md: 3, lg: 4 }}
-        >
-          <Grid item sm={12} md={12} lg={6}>
-            <Paper elevation={0} square sx={styles.paperContainer}>
-              <PhoneAndroidIcon sx={{ fontSize: 32 }} />
-              <Typography fontSize={"1rem"}>+55 11 95168-3805</Typography>
-              <Button
-                color="primary"
-                onClick={() => {
-                  window.open("https://wa.me/5511951683805", "_blank");
-                }}
-              >
-                <WhatsAppIcon />
-              </Button>
-            </Paper>
+        <Box sx={mobile ? styles.mobileContainer : {}}>
+          <Grid
+            container
+            rowSpacing={2}
+            columnSpacing={{ lg: 4 }}
+          >
+            <Grid item xs={12} lg={6}>
+              <Paper elevation={0} square sx={styles.paperContainer}>
+                <PhoneAndroidIcon sx={{ fontSize: 32 }} />
+                <Typography fontSize={"1rem"}>+55 11 95168-3805</Typography>
+                <Button
+                  color="primary"
+                  onClick={() => {
+                    window.open("https://wa.me/5511951683805", "_blank");
+                  }}
+                >
+                  <WhatsAppIcon />
+                </Button>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+              <Paper elevation={0} square sx={styles.paperContainer}>
+                <AlternateEmailIcon sx={{ fontSize: 32 }} />
+                <Typography fontSize={"1rem"}>
+                  renata.sprado@outlook.com
+                </Typography>
+                <EmailModal />
+              </Paper>
+            </Grid>
           </Grid>
-          <Grid item sm={12} md={12} lg={6}>
-            <Paper elevation={0} square sx={styles.paperContainer}>
-              <AlternateEmailIcon sx={{ fontSize: 32 }} />
-              <Typography fontSize={"1rem"}>
-                renata.sprado@outlook.com
-              </Typography>
-              <EmailModal />
-            </Paper>
-          </Grid>
-        </Grid>
+          </Box>
       </Box>
     );
 }
 
 
 const styles = {
+  mobileContainer: { 
+    pr: 4,
+    pl: 4
+  },
   paperContainer: {
     height: "8vh",
     p: 2,

@@ -75,7 +75,7 @@ function Profile() {
               Habilidades
             </Typography>
             <Box sx={{display: 'flex', flexWrap: 'wrap', gap: 0.5, justifyContent: 'space-evenly', p:1  }}>
-              {skills.map((s, i)=>(<Chip sx={{mb:'0.5rem'}}label={s}/>))}
+              {skills.map((s, i)=>(<Chip sx={{mb:'0.5rem'}} label={s} key={i}/>))}
             </Box>
           </Box>
         </Stack>
