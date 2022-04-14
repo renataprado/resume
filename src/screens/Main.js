@@ -136,7 +136,7 @@ const educationItems = [
   {
     id: 1, 
     uptitle: 'Tecnólogo',
-    title: 'Análise e Desevolvimento de Sistemas', 
+    title: 'Análise e Desenvolvimento de Sistemas', 
     subtitle: 'FATEC - Faculdade de Tecnologia de São Paulo',
     period:  '2018 - Atualmente',
     obs: ''
