@@ -69,11 +69,10 @@ const ChangeTheme = (props) => {
       }}
     >
       <IconButton sx={{ ml: 1 }} onClick={clickHandler} color="inherit">
-        {  click ? <Brightness7Icon /> : <Brightness4Icon />}
+        {  click ? <Brightness4Icon /> : <Brightness7Icon /> }
       </IconButton>
     </Box>
   )
 }
 
 export default App;
-//background-color: rgb(21, 32, 43); /*! scrollbar-color: rgb(107, 125, 140) rgb(25, 39, 52); */

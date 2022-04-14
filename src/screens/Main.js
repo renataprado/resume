@@ -9,10 +9,7 @@ import { Box,
   Collapse, 
   Typography,
   List, 
-  ListItemButton,
-  ListItemIcon,
-  Paper, 
-  Link} from '@mui/material';
+  ListItemButton} from '@mui/material';
 
 
 function Main(props){
@@ -23,17 +20,17 @@ function Main(props){
         <List sx={{ width: '100%', bgcolor: 'background.default' }} component="nav">
           <NavItem title={'Perfil'} component={<Profile/>}></NavItem>
           <NavItem title={'Educação'} 
-            component={<Timeline  items={educationItems} mobile={true}/>}></NavItem>
+            component={<Box sx={{ display: "flex",}}><Timeline  items={educationItems} mobile={true}/></Box>}></NavItem>
           <NavItem title={'Experiência Profissional'} 
-            component={<Timeline items={workexpItems} mobile={true}/>}></NavItem>
+            component={<Box sx={{ display: "flex"}}><Timeline items={workexpItems} mobile={true}/></Box>}></NavItem>
           <NavItem title={'Contato'} 
-            component={<ContactMe mobile={true}/>}></NavItem>
+            component={<Box sx={{ display: "flex"}}><ContactMe mobile={true}/></Box>}></NavItem>
         </List>
       </Box>
     )
   }
   return (
-    <Box sx={{ p: 0, height: '100vh'}}>
+    <Box sx={{ height: '100vh'}}>
       <Grid container spacing={0}>
         <Grid item sm={4} md={3} lg={2}>
           <Box sx={{ bgcolor: "background.paper", height: "99vh" }}>
@@ -42,19 +39,22 @@ function Main(props){
         </Grid>
         <Grid item sm={8} md={9} lg={10}>
           <Box sx={{overflow: "auto", display: 'flex', height: '99vh'}}>
-            <Grid container alignItems="center" rowSpacing={{ xs: 5,lg: 0}}>
-              <Grid item mt={6} xs={12} lg={6}>
-                <Box sx={{ display: "flex", justifyContent:"center"}}>
-                  <Timeline title="Educação" items={educationItems}></Timeline>
-                </Box>
-              </Grid>
-              <Grid item xs={12} lg={6}>
-                <Box  sx={{ display: "flex", justifyContent:"center"}}>
+            <Grid container columnSpacing={{md:3, lg: 1}}  rowSpacing={{ sm:3, md: 2, lg: 2}} sx={{p: 2}}>
+            <Grid item xs={0} md={2} lg={1} ></Grid>
+              <Grid item xs={12} md={9} lg={5}sx={styles.centerItem}>
+                <Box sx={styles.gridContainer}>
                   <Timeline title="Experiência Profissional" items={workexpItems} />
                 </Box>
               </Grid>
-              <Grid sx={{ display: 'flex', justifyContent: 'center'}}item  lg={12}>
-                <Box sx={{width: '80%'}}>
+              <Grid item xs={0} md={2} lg={1}></Grid>
+              <Grid item xs={12} md={9} lg={5} sx={styles.centerItem}>
+                <Box sx={styles.gridContainer}>
+                  <Timeline title="Educação" items={educationItems}></Timeline>
+                </Box>
+              </Grid>
+              <Grid item  xs={12}
+                sx={styles.centerItem}>
+                <Box sx={{width: '90%'}}>
                   <ContactMe />
                 </Box>
               </Grid>
@@ -64,6 +64,26 @@ function Main(props){
       </Grid>
     </Box>
   );
+}
+
+
+const styles = {
+  collapse:{
+    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px',
+    pb: 2
+  },
+  listItem: {
+    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px'
+  },
+  none: {
+    boxShadow: '0'
+  },
+  gridContainer: { 
+    display: "flex", width: '90%', mt:1, p:2
+  },
+  centerItem: {
+    display: 'flex', alignItems: 'center', justifyContent: 'center'
+  }
 }
 
 const NavItem = (props) => {
@@ -83,18 +103,6 @@ const NavItem = (props) => {
   )
 }
 
-const styles = {
-  collapse:{
-    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px',
-    pb: 2
-  },
-  listItem: {
-    boxShadow: 'rgba(0, 0, 0, 0.2) 2px 2px 3px'
-  },
-  none: {
-    boxShadow: '0'
-  }
-}
 
 const workexpItems = [
   {
@@ -103,7 +111,7 @@ const workexpItems = [
     title: 'IBM', 
     subtitle: 'Technology Garage ',
     period:  'mar 2021 - dez 2021',
-    obs: ''
+    obs: 'Desenvolvimento de MVPs para grande clientes de Cloud, como Oi, banco Next, entre outros. Experiência com React, Angular, NodeJS, Docker, CI/CD, Chatbot, Agile, Design Thinking.'
   },
   {
     id: 2, 
@@ -111,7 +119,7 @@ const workexpItems = [
     title: 'IBM', 
     subtitle: 'Cloud & Cognitive ',
     period:  'set 2019 - fev 2021',
-    obs: ''
+    obs: 'Apoio aos vendedores técnicos da unidade de Hybrid Cloud, acompanhamento de apresentações de produtos e provas de conceito. Desenvolvimento web de soluções internaspara a equipe utilizando Angular e NodeJS.'
   },
   {
     id: 3, 
@@ -119,7 +127,7 @@ const workexpItems = [
     title: 'OneSoft', 
     subtitle: 'Desenvolvimento em C# ',
     period:  'fev 2019 - ago 2019',
-    obs: ''
+    obs: 'Desenvolvimento em C# de features diversas, principalmente relacionadas a tela. Elaboração e codificação de unit tests. Configuração de rotinas de testesautomatizados no Jenkins.'
   },
 
 ];

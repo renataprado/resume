@@ -8,9 +8,7 @@ import {
   CircularProgress,
   Stack,
   Chip,
-  Button,
-  ButtonGroup,
-  IconButton
+  Button
 } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import DownloadIcon from '@mui/icons-material/Download';
@@ -31,20 +29,19 @@ function Profile() {
   return (
     <Box  
       sx={{
-        pt: 4,
-        pd: 1,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        height: "96%"
+        height: "99%",
+        overflow: "auto"
       }}
     >
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
         <Avatar
           alt="Renata Prado"
           src={avatar}
-          sx={{ minWidth: 140, minHeight: 140 }}
+          sx={{ minWidth: 140, minHeight: 140, mt: 3}}
         />
         <Typography
           variant="h5"

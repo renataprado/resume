@@ -1,7 +1,21 @@
 .App {
   margin: 0;
 }
-/* 
+
+/* ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #c2d2e4;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 30px;
+  background-color: #0a4c95;
+}
+/*  */
 .progress.MuiLinearProgress-root {
   background-color: #0a1929
 }
@@ -12,6 +26,16 @@
 /*.MuiLinearProgress-root'*/
 .App-logo {  height: 40vmin;  pointer-events: none;  animation: reveal 2s linear;}
 
+.accordion-content {
+  overflow: hidden;
+  max-height: 1000px;
+  transition: max-height 1s ease-in-out;
+}
+
+.accordion-content[aria-expanded="true"] {
+  max-height: 0px;
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+}
 
 @keyframes slide-in {
   from {

@@ -7,25 +7,18 @@ import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import {
   Box,
   Paper,
-  Link,
   Typography,
   Button,
   TextField,
-  IconButton,
   Grid,
   Modal,
 } from "@mui/material";
-import { bgcolor } from "@mui/system";
 
 function ContactMe(props) {
   const mobile = props.mobile;
 
     return (
-      <Box
-        sx={{
-          width: "100%"
-        }}
-      >
+      <Box sx={{width: "100%", pb:1 }} >
         {!mobile ? (
           <Typography variant="h6" sx={{ color: "text.primary" }}>
             Contato
@@ -38,19 +31,19 @@ function ContactMe(props) {
             width: "75%",
             height: 3,
             bgcolor: "primary.main",
-            animation: "slide-in 1200ms ",
+            animation: "slide-in 800ms",
             mb:2
           }}
         />
-        <Box sx={mobile ? styles.mobileContainer : {}}>
+        <Box sx={{p:2}}>
           <Grid
             container
             rowSpacing={2}
-            columnSpacing={{ lg: 4 }}
+            columnSpacing={{ lg: 6 }}
           >
             <Grid item xs={12} lg={6}>
               <Paper elevation={0} square sx={styles.paperContainer}>
-                <PhoneAndroidIcon sx={{ fontSize: 32 }} />
+                <PhoneAndroidIcon sx={{ fontSize: "2rem" }} />
                 <Typography fontSize={"1rem"}>+55 11 95168-3805</Typography>
                 <Button
                   color="primary"
@@ -64,7 +57,7 @@ function ContactMe(props) {
             </Grid>
             <Grid item xs={12} lg={6}>
               <Paper elevation={0} square sx={styles.paperContainer}>
-                <AlternateEmailIcon sx={{ fontSize: 32 }} />
+                <AlternateEmailIcon sx={{ fontSize: "2rem", mr: 1 }} />
                 <Typography fontSize={"1rem"}>
                   renata.sprado@outlook.com
                 </Typography>
@@ -79,12 +72,9 @@ function ContactMe(props) {
 
 
 const styles = {
-  mobileContainer: { 
-    pr: 4,
-    pl: 4
-  },
   paperContainer: {
     height: "8vh",
+    minWidth: "18rem",
     p: 2,
     display: "flex",
     alignItems: "center",
@@ -104,10 +94,11 @@ function EmailModal() {
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
-      width: 500,
+      width: "100%",
+      maxWidth: 500,
       bgcolor: "background.paper",
       boxShadow: 24,
-      p: 4,
+      p: 2,
     },
     messageContainer: {
       width: "100%",

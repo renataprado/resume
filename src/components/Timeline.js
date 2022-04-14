@@ -1,15 +1,12 @@
-import { Box, Link, Typography, LinearProgress } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import TimelineItem from './TimelineItem';
 
 function Timeline(props){
   const mobile = props.mobile;
   const items = props.items;
 
-
   return (
-    <Box sx={{
-      minHeight: '60vh'
-      }}>
+    <Box sx={{ width: '100%'}}>
       {!mobile ? (
         <Typography variant="h6" sx={{ color: "text.primary"}}>
           {props.title}
@@ -25,23 +22,34 @@ function Timeline(props){
           animation: "slide-in 475ms ",
         }}
       />
-      <Box 
-        sx={{ 
-          display: "flex", 
-          flexDirection: "column", 
-          alignItems: 'center',
-          height: "27rem",
-          pt:1 
-        }}
-      >
+      <Box  sx={mobile ? styles.mobileContainer : styles.container}>
         {items.map((item, index) => (
-          <Box key={index} sx={{}}>
+          <Box sx={{pl: '5%', pr: '5%'}} key={index} >
             <TimelineItem value={item} />
           </Box>
         ))}
       </Box>
     </Box>
   );
+}
+
+const styles = {
+  container: { 
+    display: "flex", 
+    flexDirection: "column",
+    pt:1,
+    height: '100%', 
+    minHeight: '24rem',
+    maxHeight: '60vh' ,
+    overflowY: 'auto'
+  },
+  mobileContainer: { 
+    display: "flex", 
+    flexDirection: "column",
+    pt:1,
+    height: '100%', 
+    minHeight: '24rem',
+  }
 }
 
 export default Timeline;
