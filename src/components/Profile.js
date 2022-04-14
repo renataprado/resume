@@ -8,9 +8,7 @@ import {
   CircularProgress,
   Stack,
   Chip,
-  Button,
-  ButtonGroup,
-  IconButton
+  Button
 } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import DownloadIcon from '@mui/icons-material/Download';
@@ -20,8 +18,7 @@ import avatar from "../assets/avatar1.jpg";
 import { height } from "@mui/system";
 
 function Profile() {
-
-  const skills = [ "Angular", "React", "Node", "Git", "mongoDB", 'coisas'];
+  const skills = [ "JavaScript", "Angular", "React", "C#", "Docker", "NoSQL","Git", ];
 
   const languages = [
     { title: "Inglês", progress: 85 },
@@ -32,20 +29,19 @@ function Profile() {
   return (
     <Box  
       sx={{
-        pt: 4,
-        pd: 1,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        height: "96%"
+        height: "99%",
+        overflow: "auto"
       }}
     >
       <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
         <Avatar
           alt="Renata Prado"
           src={avatar}
-          sx={{ minWidth: 140, minHeight: 140 }}
+          sx={{ minWidth: 140, minHeight: 140, mt: 3}}
         />
         <Typography
           variant="h5"
@@ -75,8 +71,8 @@ function Profile() {
             <Typography variant="h6" sx={styles.sectionTitle}>
               Habilidades
             </Typography>
-            <Box sx={{border:0, display: 'flex', flexWrap: 'wrap', justifyContent: 'space-evenly'  }}>
-              {skills.map((s, i)=>(<Chip sx={{mb:'0.5rem'}}label={s}/>))}
+            <Box sx={{display: 'flex', flexWrap: 'wrap', gap: 0.5, justifyContent: 'space-evenly', p:1  }}>
+              {skills.map((s, i)=>(<Chip sx={{mb:'0.5rem'}} label={s} key={i}/>))}
             </Box>
           </Box>
         </Stack>
@@ -87,15 +83,15 @@ function Profile() {
           direction="row" 
           justifyContent={'space-evenly'} 
           >
-          <IconButton aria-label="download pdf">
+          <Button aria-label="download pdf">
             <DownloadIcon  color="primary"/>
-          </IconButton>
-          <IconButton aria-label="github">
+          </Button>
+          <Button aria-label="github">
             <GitHubIcon  color="primary"/>
-          </IconButton>
-          <IconButton aria-label="linkedin">
+          </Button>
+          <Button aria-label="linkedin">
             <LinkedInIcon  color="primary" />
-          </IconButton>
+          </Button>
         </Stack>
       </Box>
     </Box>
@@ -112,7 +108,7 @@ const Language = (props) => {
       setProgress((prevProgress) =>
         prevProgress >= props.value.progress
           ? props.value.progress
-          : prevProgress + 5
+          : prevProgress + 2.5
       );
     }, 80);
     return () => {
