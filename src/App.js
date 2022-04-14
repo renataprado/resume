@@ -1,7 +1,7 @@
 import './App.css';
 //import { ThemeProvider} from  '@material-ui/core/styles';
 import { useState, useEffect } from 'react';
-import {  ThemeProvider, Box, IconButton, useMediaQuery} from '@mui/material';
+import {  ThemeProvider, Box, IconButton} from '@mui/material';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import Main from './screens/Main';

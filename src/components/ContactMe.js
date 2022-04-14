@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";

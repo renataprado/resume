@@ -1,6 +1,6 @@
 
 import { createTheme } from '@mui/material/styles';
-import { green, purple, blue, grey, pink, indigo} from '@mui/material/colors';
+import { green, purple, blue} from '@mui/material/colors';
 export const darkTheme = createTheme({
   color: blue,
     typography: {

@@ -9,10 +9,7 @@ function TimelineItem(props) {
   const [active, setActive] = useState(false);
   const secs = (props.value.id - 1) * 400;
   const hasObs = String(props.value.obs).length > 0;
-
-  useEffect(() => { 
-    const timer = setTimeout(() => setActive(true), secs);
-  }, []);
+  setTimeout(() => setActive(true), secs);
 
   const [expanded, setExpanded] = useState(false);
 
@@ -88,20 +85,6 @@ function TimelineItem(props) {
   return <Box sx={{ width: 400 }}></Box>;
 }
 
-function link() {
-  return (
-    <Link
-      component="button"
-      variant="caption"
-      underline="hover"
-      onClick={() => {
-        console.info("I'm a button.");
-      }}
-    >
-      Disciplinas curriculares
-    </Link>
-  );
-}
 const styles = {
   paper: {
     display: "flex",
