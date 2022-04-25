@@ -33,12 +33,12 @@ function Main(props){
     <Box sx={{ height: '100vh'}}>
       <Grid container spacing={0}>
         <Grid item sm={4} md={3} lg={2}>
-          <Box sx={{ bgcolor: "background.paper", height: "99vh" }}>
+          <Box sx={{ bgcolor: "background.paper", height: "100vh", display: 'flex', overflow: "auto" }}>
             <Profile></Profile>
           </Box>
         </Grid>
         <Grid item sm={8} md={9} lg={10}>
-          <Box sx={{overflow: "auto", display: 'flex', height: '99vh'}}>
+          <Box sx={{overflow: "auto", display: 'flex', height: '100vh'}}>
             <Grid container columnSpacing={{md:3, lg: 1}}  rowSpacing={{ sm:3, md: 2, lg: 2}} sx={{p: 2}}>
             <Grid item xs={0} md={2} lg={1} ></Grid>
               <Grid item xs={12} md={9} lg={5}sx={styles.centerItem}>

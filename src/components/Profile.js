@@ -14,6 +14,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import DownloadIcon from '@mui/icons-material/Download';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PlaceIcon from '@mui/icons-material/Place';
 import avatar from "../assets/avatar1.jpg";
 import { height } from "@mui/system";
 
@@ -27,78 +28,114 @@ function Profile() {
   ];
 
   return (
-    <Box  
+    <Box
       sx={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "space-between",
-        height: "99%",
-        overflow: "auto"
+        height: "100%",
       }}
     >
-      <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
-        <Avatar
-          alt="Renata Prado"
-          src={avatar}
-          sx={{ minWidth: 140, minHeight: 140, mt: 3}}
-        />
-        <Typography
-          variant="h5"
-          sx={{ color: "text.primary", fontSize: "1.2rem", mt: 2 }}
+      <Card />
+      <Stack
+          sx={{ width: "90%" }}
+          spacing={{ xs: 1, md: 2, lg: 3 }}
+          divider={<Divider flexItem />}
         >
-          Renata Prado
-        </Typography>
-        <Typography
-          variant="overline"
-          sx={{ color: "text.secondary", fontSize: "0.7rem", mb: 2 }}
-        >
-          Desenvolvedora de Software
-        </Typography>
-        <Divider flexItem />
-        <Stack sx={{width:'90%'}} spacing={{ xs: 2, sm: 3, md: 4 }} divider={<Divider flexItem />}>
-          <Box sx={styles.section}>
-            <Typography variant="h6" sx={styles.sectionTitle}>
-              Idiomas
+          <Languagues languages={languages}/>
+          <Skills skills={skills}/>
+          <Box sx={{ display: "flex", alignItems: "center", width: '100%', justifyContent: 'center'}}>
+            <PlaceIcon color="primary" />
+            <Typography variant="body" sx={{ fontSize: "0.9rem", color: "text.primary", p: 1 }}>
+                São Paulo - Brasil
             </Typography>
-            <Stack direction="row" spacing={3}  alignItems="flex-start" justifyContent="space-evenly">
-              {languages.map((l, index) => (
-                <Language key={index} value={l}></Language>
-              ))}
-            </Stack>
-          </Box>
-          <Box sx={styles.section}>
-            <Typography variant="h6" sx={styles.sectionTitle}>
-              Habilidades
-            </Typography>
-            <Box sx={{display: 'flex', flexWrap: 'wrap', gap: 0.5, justifyContent: 'space-evenly', p:1  }}>
-              {skills.map((s, i)=>(<Chip sx={{mb:'0.5rem'}} label={s} key={i}/>))}
-            </Box>
           </Box>
         </Stack>
-      </Box>
-      <Box sx={{ width: '100%'}}>
+      <Box sx={{ width: "100%" }}>
         <Divider flexItem />
-        <Stack 
-          direction="row" 
-          justifyContent={'space-evenly'} 
-          >
+        <Stack direction="row" justifyContent={"space-evenly"}>
           <Button aria-label="download pdf">
-            <DownloadIcon  color="primary"/>
+            <DownloadIcon color="primary" />
           </Button>
           <Button aria-label="github">
-            <GitHubIcon  color="primary"/>
+            <GitHubIcon color="primary" />
           </Button>
           <Button aria-label="linkedin">
-            <LinkedInIcon  color="primary" />
+            <LinkedInIcon color="primary" />
           </Button>
         </Stack>
       </Box>
     </Box>
   );
 }
+const Card = () => { 
+  return(
+    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", width: '100%'}}>
+      <Avatar
+        alt="Renata Prado"
+        src={avatar}
+        sx={{ minWidth: 140, minHeight: 140, mt: 3}}
+      />
+      <Typography
+        variant="h5"
+        sx={{ color: "text.primary", fontSize: "1.2rem", mt: 2 }}
+      >
+        Renata Prado
+      </Typography>
+      <Typography
+        variant="overline"
+        sx={{ color: "text.secondary", fontSize: "0.7rem", mb: 2 }}
+      >
+        Desenvolvedora de Software
+      </Typography>
+      <Divider flexItem /> 
+    </Box>
+  )
+}
 
+const Skills = (props) => { 
+  return(
+    <Box sx={{ width: "100%" }}>
+            <Typography variant="h6" sx={styles.sectionTitle}>
+              Habilidades
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: 0.5,
+                justifyContent: "space-evenly",
+                p: 1,
+              }}
+            >
+              {props.skills.map((s, i) => (
+                <Chip sx={{ mb: "0.5rem" }} label={s} key={i} />
+              ))}
+            </Box>
+          </Box>
+  )
+}
 
+const Languagues = (props) => { 
+  return(
+    <Box sx={{ width: "100%" }}>
+    <Typography variant="h6" sx={styles.sectionTitle}>
+      Idiomas
+    </Typography>
+    <Stack
+      direction="row"
+      spacing={3}
+      alignItems="flex-start"
+      justifyContent="space-evenly"
+    >
+      {props.languages.map((l, index) => (
+        <Language key={index} value={l}></Language>
+      ))}
+    </Stack>
+  </Box>
+  )
+}
 const Language = (props) => {
   const [progress, setProgress] = useState(0);
 
@@ -174,7 +211,6 @@ const Language = (props) => {
 const styles = {
   section: {
     width: "100%",
-    mt: 2,
   },
   sectionTitle: {
     fontSize: "0.9rem",
