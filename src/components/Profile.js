@@ -16,7 +16,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PlaceIcon from '@mui/icons-material/Place';
 import avatar from "../assets/avatar1.jpg";
-import { height } from "@mui/system";
 
 function Profile() {
   const skills = [ "JavaScript", "Angular", "React", "C#", "Docker", "NoSQL","Git", ];
@@ -40,7 +39,7 @@ function Profile() {
       <Card />
       <Stack
           sx={{ width: "90%" }}
-          spacing={{ xs: 1, md: 2, lg: 3 }}
+          spacing={{ xs: 2, md: 3, lg: 3 }}
           divider={<Divider flexItem />}
         >
           <Languagues languages={languages}/>
@@ -136,6 +135,7 @@ const Languagues = (props) => {
   </Box>
   )
 }
+
 const Language = (props) => {
   const [progress, setProgress] = useState(0);
 
