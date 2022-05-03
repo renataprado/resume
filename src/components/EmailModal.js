@@ -14,7 +14,7 @@ export default function EmailModal() {
 
 
   function submitEmail() {
-    fetch("http://localhost:5000/email", {
+    fetch("https://soft-lollipop-39da5c.netlify.app/.netlify/functions/api/email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify( new Object({nome, email, mensagem})),
