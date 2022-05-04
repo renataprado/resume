@@ -46,7 +46,6 @@ function Main(props){
                   <Timeline title="Experiência Profissional" items={workexpItems} />
                 </Box>
               </Grid>
-              <Grid item xs={0} md={2} lg={1}></Grid>
               <Grid item xs={12} md={9} lg={5} sx={styles.centerItem}>
                 <Box sx={styles.gridContainer}>
                   <Timeline title="Educação" items={educationItems}></Timeline>
@@ -82,7 +81,7 @@ const styles = {
     display: "flex", width: '90%', mt:1, p:2
   },
   centerItem: {
-    display: 'flex', alignItems: 'center', justifyContent: 'center'
+    display: 'flex', alignItems: 'flex-start', justifyContent: 'center'
   }
 }
 
