@@ -8,8 +8,10 @@ import {
 function TimelineItem(props) {
   const [active, setActive] = useState(false);
   const secs = (props.value.id - 1) * 400;
-  const hasObs = String(props.value.obs).length > 0;
   setTimeout(() => setActive(true), secs);
+  
+  const hasObs = String(props.value.obs).length > 0;
+  
 
   const [expanded, setExpanded] = useState(false);
 

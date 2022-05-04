@@ -1,20 +1,16 @@
-import { useState } from "react";
+import EmailModal from "./EmailModal";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
-import SendIcon from "@mui/icons-material/Send";
-import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import {
   Box,
   Paper,
   Typography,
   Button,
-  TextField,
   Grid,
-  Modal,
 } from "@mui/material";
 
-function ContactMe(props) {
+export default function ContactMe(props) {
   const mobile = props.mobile;
 
     return (
@@ -83,58 +79,4 @@ const styles = {
     animation: 'fadein 0.4s'
   },
 };
-function EmailModal() {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
-  const style = {
-    modalContainer: {
-      position: "absolute",
-      top: "50%",
-      left: "50%",
-      transform: "translate(-50%, -50%)",
-      width: "100%",
-      maxWidth: 500,
-      bgcolor: "background.paper",
-      boxShadow: 24,
-      p: 2,
-    },
-    messageContainer: {
-      width: "100%",
-      maxWidth: 800,
-      gap: 1.5,
-      display: "flex",
-      flexDirection: "column",
-    },
-  };
-
-  return (
-    <div>
-      <Button onClick={handleOpen}>
-        <ForwardToInboxIcon />
-      </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style.modalContainer}>
-          <Box sx={style.messageContainer}>
-            <TextField fullWidth size="small" label="Nome" />
-            <TextField fullWidth size="small" label="Email" />
-            <Box sx={{ display: "flex" }}>
-              <TextField label="Mensagem" multiline fullWidth rows={3} />
-              <Button>
-                <SendIcon />
-              </Button>
-            </Box>
-          </Box>
-        </Box>
-      </Modal>
-    </div>
-  );
-}
-
-export default ContactMe;
