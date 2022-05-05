@@ -38,21 +38,26 @@ function Profile() {
     >
       <Card />
       <Stack
-          sx={{ width: "90%" }}
-          spacing={{ xs: 2, md: 3, lg: 3 }}
+          sx={{ width: "90%", pt: 2, pb: 2 }}
+          spacing={{ xs: 2,  lg: 3 }}
           divider={<Divider flexItem />}
         >
           <Languagues languages={languages}/>
           <Skills skills={skills}/>
-          <Box sx={{ display: "flex", alignItems: "center", width: '100%', justifyContent: 'center'}}>
+          <Box sx={{ 
+            display: "flex", 
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: "center" }}
+            >
             <PlaceIcon color="primary" />
             <Typography variant="body" sx={{ fontSize: "0.9rem", color: "text.primary", p: 1 }}>
                 São Paulo - Brasil
             </Typography>
           </Box>
         </Stack>
-      <Box sx={{ width: "100%" }}>
-        <Divider flexItem />
+      <Box sx={{ width: "100%"}}>
+        <Divider flexItem sx={{mb:1}}/>
         <Stack direction="row" justifyContent={"space-evenly"}>
           <Button aria-label="download pdf">
             <DownloadIcon color="primary" />
@@ -117,6 +122,79 @@ const Skills = (props) => {
 }
 
 const Languagues = (props) => { 
+
+  const Language = (props) => {
+    const [progress, setProgress] = useState(0);
+  
+    useEffect(() => {
+      //const timer = setTimeout(() => setProgress(props.value.progress), 1000);
+      const timer = setInterval(() => {
+        setProgress((prevProgress) =>
+          prevProgress >= props.value.progress
+            ? props.value.progress
+            : prevProgress + 2.5
+        );
+      }, 80);
+      return () => {
+        clearInterval(timer);
+      };
+    }, []);
+  
+    function CircularProgressWithLabel(props) {
+      return (
+        <Box sx={{ position: "relative", display: "inline-flex" }}>
+          <Box sx={{ position: "relative" }}>
+            <CircularProgress
+              variant="determinate"
+              sx={{color: 'primary.shadow'}}
+              value={100}
+            />
+            <CircularProgress
+              sx={{
+                position: "absolute",
+                left: 0,
+              }}
+              variant="determinate"
+              {...props}
+            />
+          </Box>
+          <Box
+            sx={{
+              top: 0,
+              left: 0,
+              bottom: 2,
+              right: 0,
+              position: "absolute",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Typography
+              variant="caption"
+              component="div"
+              color="text.secondary"
+              sx={{ fontSize: 11 }}
+            >
+              {`${Math.round(props.value)}%`}
+            </Typography>
+          </Box>
+        </Box>
+      );
+    }
+  
+    return (
+      <Box
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      >
+        <CircularProgressWithLabel value={progress} />
+        <Typography sx={{ color: "text.primary", fontSize: "0.7rem", mt: 0.7 }}>
+          {props.value.title}
+        </Typography>
+      </Box>
+    );
+  };
+
   return(
     <Box sx={{ width: "100%" }}>
     <Typography variant="h6" sx={styles.sectionTitle}>
@@ -136,77 +214,7 @@ const Languagues = (props) => {
   )
 }
 
-const Language = (props) => {
-  const [progress, setProgress] = useState(0);
 
-  useEffect(() => {
-    //const timer = setTimeout(() => setProgress(props.value.progress), 1000);
-    const timer = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress >= props.value.progress
-          ? props.value.progress
-          : prevProgress + 2.5
-      );
-    }, 80);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
-
-  function CircularProgressWithLabel(props) {
-    return (
-      <Box sx={{ position: "relative", display: "inline-flex" }}>
-        <Box sx={{ position: "relative" }}>
-          <CircularProgress
-            variant="determinate"
-            sx={{color: 'primary.shadow'}}
-            value={100}
-          />
-          <CircularProgress
-            sx={{
-              position: "absolute",
-              left: 0,
-            }}
-            variant="determinate"
-            {...props}
-          />
-        </Box>
-        <Box
-          sx={{
-            top: 0,
-            left: 0,
-            bottom: 2,
-            right: 0,
-            position: "absolute",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Typography
-            variant="caption"
-            component="div"
-            color="text.secondary"
-            sx={{ fontSize: 11 }}
-          >
-            {`${Math.round(props.value)}%`}
-          </Typography>
-        </Box>
-      </Box>
-    );
-  }
-
-  return (
-    <Box
-      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-    >
-      <CircularProgressWithLabel value={progress} />
-      <Typography sx={{ color: "text.primary", fontSize: "0.7rem", mt: 0.7 }}>
-        {props.value.title}
-      </Typography>
-    </Box>
-  );
-};
 
 const styles = {
   section: {

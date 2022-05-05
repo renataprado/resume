@@ -6,18 +6,11 @@ import {
 } from "@mui/material";
 
 function TimelineItem(props) {
+  const [expanded, setExpanded] = useState(false);
   const [active, setActive] = useState(false);
   const secs = (props.value.id - 1) * 400;
   setTimeout(() => setActive(true), secs);
-  
   const hasObs = String(props.value.obs).length > 0;
-  
-
-  const [expanded, setExpanded] = useState(false);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
 
   if (active) {
     return (
