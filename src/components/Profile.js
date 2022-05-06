@@ -59,13 +59,13 @@ function Profile() {
       <Box sx={{ width: "100%"}}>
         <Divider flexItem sx={{mb:1}}/>
         <Stack direction="row" justifyContent={"space-evenly"}>
-          <Button aria-label="download pdf">
+          <Button aria-label="download pdf" onClick={()=> download('../../assets/', 'Renata Souza Prado - Curriculo 2022.pdf')}>
             <DownloadIcon color="primary" />
           </Button>
-          <Button aria-label="github">
+          <Button aria-label="github"  onClick={()=> window.open('https://github.com/renataprado/', '_blank').focus()} >
             <GitHubIcon color="primary" />
           </Button>
-          <Button aria-label="linkedin">
+          <Button aria-label="linkedin"  onClick={()=> window.open('https://www.linkedin.com/in/renata--prado/', '_blank').focus()}>
             <LinkedInIcon color="primary" />
           </Button>
         </Stack>
@@ -213,6 +213,22 @@ const Languagues = (props) => {
   </Box>
   )
 }
+
+const download = (path, filename) => {
+  // Create a new link
+  const anchor = document.createElement('a');
+  anchor.href = path;
+  anchor.download = filename;
+
+  // Append to the DOM
+  document.body.appendChild(anchor);
+
+  // Trigger `click` event
+  anchor.click();
+
+  // Remove element from DOM
+  document.body.removeChild(anchor);
+}; 
 
 
 
