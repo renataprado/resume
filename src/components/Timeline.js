@@ -14,7 +14,7 @@ function Timeline(props){
       ) : (
         <Box />
       )}
-      <Box
+      <Box className="hover-3"
         sx={{
           width: "75%",
           height: 3,

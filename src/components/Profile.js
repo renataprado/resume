@@ -17,14 +17,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PlaceIcon from '@mui/icons-material/Place';
 import avatar from "../assets/avatar1.jpg";
 
-function Profile() {
-  const skills = [ "JavaScript", "Angular", "React", "C#", "Docker", "NoSQL","Git", ];
-
-  const languages = [
-    { title: "Inglês", progress: 85 },
-    { title: "Espanhol", progress: 35 },
-    { title: "Português", progress: 100 },
-  ];
+function Profile(props) {
 
   return (
     <Box
@@ -42,8 +35,8 @@ function Profile() {
           spacing={{ xs: 2,  lg: 3 }}
           divider={<Divider flexItem />}
         >
-          <Languagues languages={languages}/>
-          <Skills skills={skills}/>
+          <Languagues languages={props.languages}/>
+          <Skills skills={props.skills}/>
           <Box sx={{ 
             display: "flex", 
             width: '100%',
@@ -59,7 +52,7 @@ function Profile() {
       <Box sx={{ width: "100%"}}>
         <Divider flexItem sx={{mb:1}}/>
         <Stack direction="row" justifyContent={"space-evenly"}>
-          <Button aria-label="download pdf" onClick={()=> download('../../assets/', 'Renata Souza Prado - Curriculo 2022.pdf')}>
+          <Button aria-label="download pdf" onClick={()=>  window.open('https://drive.google.com/file/d/1NSuGeN3Y3bC0iYcCDUCkuUzkNlpn27q-/view', '_blank').focus()} >
             <DownloadIcon color="primary" />
           </Button>
           <Button aria-label="github"  onClick={()=> window.open('https://github.com/renataprado/', '_blank').focus()} >
@@ -102,7 +95,7 @@ const Skills = (props) => {
   return(
     <Box sx={{ width: "100%" }}>
             <Typography variant="h6" sx={styles.sectionTitle}>
-              Habilidades
+              Conhecimento
             </Typography>
             <Box
               sx={{
@@ -114,7 +107,7 @@ const Skills = (props) => {
               }}
             >
               {props.skills.map((s, i) => (
-                <Chip sx={{ mb: "0.5rem" }} label={s} key={i} />
+                <Chip className='upChip' sx={{ mb: "0.5rem" }} label={s} key={i} />
               ))}
             </Box>
           </Box>

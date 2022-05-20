@@ -23,6 +23,44 @@
   transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
 }
 
+
+
+.hover-3 {
+  --c: #1095c1; /* the color  */
+  --h: 1.2em;   /* the height */
+  
+  line-height: var(--h);
+  background: 
+    linear-gradient(var(--c) 0 0) no-repeat 
+    calc(200% - var(--_p,0%)) 100%/200% var(--_p,.08em);
+  color: #0000;
+  overflow: hidden;
+  text-shadow: 
+    0 calc(-1*var(--_t,0em)) var(--c), 
+    0 calc(var(--h) - var(--_t,0em)) #fff;
+  transition: .3s var(--_s,0s), background-position .3s calc(.3s - var(--_s,0s));
+}
+.hover-3:hover {
+  --_t: var(--h);
+  --_p: 100%;
+  --_s: .3s
+}
+
+.upChip:hover{
+  transform: scale(1.1, 1.1);
+}
+
+.make-it-slow {
+  box-shadow: 0 2px 5px rgba(255, 255, 255,0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Transition to a bigger shadow on hover */
+.make-it-slow:hover {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  transform: scale(1.05, 1.05);
+}
+
 @keyframes slide-in {
   from {
     transform: translateX(-100%);

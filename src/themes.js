@@ -22,7 +22,6 @@ export const darkTheme = createTheme({
         default: '#0a1929',
         paper: '#001e3c',
         contrast: '#06101a',
-        test: 'rgba(0, 30, 60, 0.2)'
       }
     },
     //'#040d17'
@@ -40,7 +39,7 @@ export const lightTheme = createTheme({
       mode: 'light',
       primary: {
         main: purple[600],
-        shadow: 'rgba(0, 0, 0, 0.1)'
+        shadow: 'rgba(0, 0, 0, 0.2)'
       },
       secondary: {
         main: green[500],

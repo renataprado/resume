@@ -14,13 +14,79 @@ import {
 } from '@mui/material';
 
 
+const workexpItems = [
+  {
+    id: 1,
+    uptitle: 'Desenvolvedora de Software',
+    title: 'IBM',
+    subtitle: 'Technology Garage ',
+    period: 'mar 2021 - dez 2021',
+    obs: 'Desenvolvimento de MVPs para grandes clientes de Cloud. Experiência com desenvolvimento web, React, Angular, NodeJS, Docker, CI/CD, Chatbot, Agile, Design Thinking.'
+  },
+  {
+    id: 2,
+    uptitle: 'Estágiaria',
+    title: 'IBM',
+    subtitle: 'Cloud & Cognitive ',
+    period: 'set 2019 - fev 2021',
+    obs: 'Apoio aos vendedores técnicos da unidade de Hybrid Cloud, acompanhamento de apresentações de produtos e provas de conceito. Desenvolvimento web de soluções internas para a equipe utilizando Angular e NodeJS.'
+  },
+  {
+    id: 3,
+    uptitle: 'Estágiaria',
+    title: 'OneSoft',
+    subtitle: 'Desenvolvimento C# ',
+    period: 'fev 2019 - ago 2019',
+    obs: 'Desenvolvimento em C# de features diversas, principalmente relacionadas a tela. Elaboração e codificação de unit tests. Configuração de rotinas de testes automatizados no Jenkins.'
+  },
+
+];
+
+const educationItems = [
+  {
+    id: 1,
+    uptitle: 'Tecnólogo',
+    title: 'Análise e Desenvolvimento de Sistemas',
+    subtitle: 'FATEC - Faculdade de Tecnologia de São Paulo',
+    period: '2018 - Atualmente',
+    obs: ''
+  },
+  {
+    id: 2,
+    uptitle: 'Bacharelado',
+    title: 'Ciência e Tecnologia',
+    subtitle: 'UFABC - Universidade Federal do ABC',
+    period: '2014 - 2015',
+    obs: ''
+  },
+  {
+    id: 3,
+    uptitle: 'Técnico',
+    title: 'Comunicação Visual',
+    subtitle: 'Etec Rocha Mendes',
+    period: '2009 - 2010',
+    obs: ''
+  }
+
+]
+
+const skills = [ "JavaScript", "Angular", "React", "C#", "Docker", "NoSQL","Git", ];
+
+const languages = [
+  { title: "Inglês", progress: 85 },
+  { title: "Espanhol", progress: 35 },
+  { title: "Português", progress: 100 },
+];
+
+
+
 function Main(props) {
   const isMobile = props.mobile;
   if (isMobile) {
     return (
       <Box sx={{ pt: 6 }}>
         <List sx={{ width: '100%', bgcolor: 'background.default' }} component="nav">
-          <NavItem title={'Perfil'} component={<Profile />}></NavItem>
+          <NavItem title={'Perfil'} component={<Profile languages={languages} skills={skills}/>}></NavItem>
           <NavItem title={'Educação'}
             component={<Box sx={{ display: "flex", }}><Timeline items={educationItems} mobile={true} /></Box>}></NavItem>
           <NavItem title={'Experiência Profissional'}
@@ -38,7 +104,7 @@ function Main(props) {
             bgcolor: "background.paper", 
             height: "100vh", 
             minHeight: 720}}>
-            <Profile></Profile>
+            <Profile languages={languages} skills={skills}></Profile>
           </Box>
         </Grid>
         <Grid item sm={8} md={9} lg={10}>
@@ -106,62 +172,6 @@ const NavItem = (props) => {
   )
 }
 
-
-const workexpItems = [
-  {
-    id: 1,
-    uptitle: 'Desenvolvedora de Software',
-    title: 'IBM',
-    subtitle: 'Technology Garage ',
-    period: 'mar 2021 - dez 2021',
-    obs: 'Desenvolvimento de MVPs para grande clientes de Cloud, como Oi, banco Next, entre outros. Experiência com React, Angular, NodeJS, Docker, CI/CD, Chatbot, Agile, Design Thinking.'
-  },
-  {
-    id: 2,
-    uptitle: 'Estágiaria',
-    title: 'IBM',
-    subtitle: 'Cloud & Cognitive ',
-    period: 'set 2019 - fev 2021',
-    obs: 'Apoio aos vendedores técnicos da unidade de Hybrid Cloud, acompanhamento de apresentações de produtos e provas de conceito. Desenvolvimento web de soluções internaspara a equipe utilizando Angular e NodeJS.'
-  },
-  {
-    id: 3,
-    uptitle: 'Estágiaria',
-    title: 'OneSoft',
-    subtitle: 'Desenvolvimento em C# ',
-    period: 'fev 2019 - ago 2019',
-    obs: 'Desenvolvimento em C# de features diversas, principalmente relacionadas a tela. Elaboração e codificação de unit tests. Configuração de rotinas de testesautomatizados no Jenkins.'
-  },
-
-];
-
-const educationItems = [
-  {
-    id: 1,
-    uptitle: 'Tecnólogo',
-    title: 'Análise e Desenvolvimento de Sistemas',
-    subtitle: 'FATEC - Faculdade de Tecnologia de São Paulo',
-    period: '2018 - Atualmente',
-    obs: ''
-  },
-  {
-    id: 2,
-    uptitle: 'Bacharelado',
-    title: 'Ciência e Tecnologia',
-    subtitle: 'UFABC - Universidade Federal do ABC',
-    period: '2014 - 2015',
-    obs: ''
-  },
-  {
-    id: 3,
-    uptitle: 'Técnico',
-    title: 'Comunicação Visual',
-    subtitle: 'Etec Rocha Mendes',
-    period: '2009 - 2010',
-    obs: ''
-  }
-
-]
 
 
 export default Main

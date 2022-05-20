@@ -43,7 +43,7 @@ function App() {
       </div>
       {/* <span>{`width: ${width}`}</span>
       <span>{` ${responsive.mobile}`}</span> */}
-      <Main mobile={responsive.mobile}></Main>
+      <Main mobile={responsive.mobile} theme={theme}></Main>
     </Box>
     </ThemeProvider>
   );
